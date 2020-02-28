@@ -5,7 +5,7 @@
 Helm Repo is a helm chart repository for storing and supplying IBM and local charts.
 
 ## Chart Details
-This chart deploys a single instance of a helm repo pod on the master node of a Kubernetes environment. 
+This chart deploys a single instance of a helm repo pod on the master node of a Kubernetes environment.
 
 ## Prerequisites
 * Kubernetes 1.11.0 or later, with beta APIs enabled
@@ -65,7 +65,7 @@ This chart requires a SecurityContextConstraints to be bound to the target names
 The predefined SecurityContextConstraints [`ibm-anyuid-scc`](https://ibm.biz/cpkspec-scc) has been verified for this chart. If your target namespace is not bound to this SecurityContextConstraints resource you can bind it with the following command:
 
 `oc adm policy add-scc-to-group ibm-anyuid-scc system:serviceaccounts:<namespace>` For example, for release into the `default` namespace:
-``` 
+```
 oc adm policy add-scc-to-group ibm-anyuid-scc system:serviceaccounts:default
 ```
 
@@ -110,7 +110,7 @@ volumes:
 ## Installing the Chart
 _NOTE: Helm repo is intended to be installed by the Installer for internal chart management, not by a user_
 
-Only one instance of helm repo should be installed on a cluster. 
+Only one instance of helm repo should be installed on a cluster.
 To install the chart with the release name `helm-repo`:
 
 ```bash
@@ -143,7 +143,7 @@ Parameter                                       | Description                   
 `replicaCount`|number of pod replications|1
 `arch` |Node architecture to deploy to|amd64
 `helmrepo.image.name`|helm repo container image name|helm-repo
-`helmrepo.image.repository`|helm repo image path|ibmcom/icp-helm-repo
+`helmrepo.image.repository`|helm repo image path|quay.io/opencloudio/icp-helm-repo
 `helmrepo.image.tag`|helm repo image tag|latest
 `helmrepo.image.pullPolicy`|helm repo image pull policy|IfNotPresent
 `helmrepo.env.CLUSTER_PORT`|helm repo cluster port|8443
@@ -160,7 +160,7 @@ Parameter                                       | Description                   
 `mongo.clustercertssecret`|mongoDB cluster cert secret|cluster-ca-cert
 `mongo.clientcertssecret`|mongoDB client cert secret|cluster-ca-cert
 `auditService.name`|audit service container name|icp-audit-service
-`auditService.image.repository`|audit service image path|ibmcom/icp-audit-service
+`auditService.image.repository`|audit service image path|quay.io/opencloudio/icp-helm-repo
 `auditService.image.tag`|audit service image tag|latest
 `auditService.image.pullPolicy`|audit service image pull policy|IfNotPresent
 `auditService.resources.limits.cpu`|audit service cpu limits|100m

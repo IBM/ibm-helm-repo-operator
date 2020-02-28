@@ -4,7 +4,7 @@ auditService:
     enabled: true
   image:
     pullPolicy: IfNotPresent
-    repository: ibmcom/icp-audit-service
+    repository: quay.io/opencloudio/icp-helm-repo
     tag: 3.3.1
   name: icp-audit-service
 helmrepo:
@@ -21,7 +21,7 @@ helmrepo:
   image:
     name: helm-repo
     pullPolicy: IfNotPresent
-    repository: ibmcom/icp-helm-repo
+    repository: quay.io/opencloudio/icp-helm-repo
     tag: 3.3.0
   resources:
     limits:

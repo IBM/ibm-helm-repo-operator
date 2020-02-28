@@ -1,0 +1,254 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: |-
+      [
+        {
+          "apiVersion": "operator.ibm.com/v1alpha1",
+          "kind": "HelmRepo",
+          "metadata": {
+            "name": "helm-repo"
+          },
+          "spec": {
+            "arch": "",
+            "auditService": {
+              "config": {
+                "enabled": true
+              },
+              "image": {
+                "pullPolicy": "IfNotPresent",
+                "repository": "quay.io/opencloudio/icp-helm-repo",
+                "tag": "3.3.1"
+              },
+              "name": "icp-audit-service"
+            },
+            "helmrepo": {
+              "WLP_Creds": {
+                "oidcClientId": "WLP_CLIENT_ID",
+                "oidcClientSecret": "WLP_CLIENT_SECRET",
+                "oidcName": "platform-oidc-credentials",
+                "redirectURL": "http://localhost:3001/auth/liberty/callback"
+              },
+              "env": {
+                "CHARTS_REPO_NAME": "local-charts",
+                "CLUSTER_CA_DOMAIN": "mycluster",
+                "CLUSTER_PORT": 8443,
+                "PROXY_ROUTE": "helm-repo"
+              },
+              "image": {
+                "name": "helm-repo",
+                "pullPolicy": "IfNotPresent",
+                "repository": "quay.io/opencloudio/icp-helm-repo",
+                "tag": "3.3.0"
+              },
+              "resources": {
+                "limits": {
+                  "cpu": "100m",
+                  "memory": "512Mi"
+                },
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "512Mi"
+                }
+              },
+              "volumeMounts": {
+                "repoAssetsMountPath": "/home/node/app/assets",
+                "repoAssetsName": "repo-assets"
+              }
+            },
+            "mongo": {
+              "clientcertssecret": "icp-mongodb-client-cert",
+              "clustercertssecret": "cluster-ca-cert",
+              "host": "mongodb",
+              "password": {
+                "key": "password",
+                "secret": "icp-mongodb-admin"
+              },
+              "port": 27017,
+              "username": {
+                "key": "user",
+                "secret": "icp-mongodb-admin"
+              }
+            },
+            "nodeSelector": {
+              "master": "true"
+            },
+            "replicaCount": 1,
+            "runAsUser": 65534,
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "dedicated",
+                "operator": "Exists"
+              },
+              {
+                "key": "CriticalAddonsOnly",
+                "operator": "Exists"
+              }
+            ]
+          }
+        }
+      ]
+    capabilities: Basic Install
+  name: ibm-helm-repo-operator.v0.0.1
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: Helmrepo CRD for the IBM helm repo chart.
+      displayName: IBM Helm repo Operator
+      kind: HelmRepo
+      name: helmrepos.operator.ibm.com
+      version: v1alpha1
+  description: IBM Helm repo Operator provides helm repo service
+  displayName: IBM Helm Repo Operator
+  install:
+    spec:
+      deployments:
+      - name: ibm-helm-repo-operator
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              name: ibm-helm-repo-operator
+          strategy: {}
+          template:
+            metadata:
+              labels:
+                name: ibm-helm-repo-operator
+            spec:
+              containers:
+              - env:
+                - name: WATCH_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.annotations['olm.targetNamespaces']
+                - name: POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: OPERATOR_NAME
+                  value: ibm-helm-repo-operator
+                image: quay.io/opencloudio/ibm-helm-repo-operator
+                imagePullPolicy: Always
+                name: ibm-helm-repo-operator
+                resources: {}
+              serviceAccountName: ibm-helm-repo-operator
+      permissions:
+      - rules:
+        - apiGroups:
+          - ""
+          resources:
+          - pods
+          - services
+          - services/finalizers
+          - endpoints
+          - persistentvolumeclaims
+          - events
+          - configmaps
+          - secrets
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - apps
+          resources:
+          - deployments
+          - daemonsets
+          - replicasets
+          - statefulsets
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - ""
+          resources:
+          - namespaces
+          verbs:
+          - get
+        - apiGroups:
+          - ""
+          resources:
+          - configmaps
+          - secrets
+          verbs:
+          - '*'
+        - apiGroups:
+          - ""
+          resources:
+          - events
+          verbs:
+          - create
+        - apiGroups:
+          - monitoring.coreos.com
+          resources:
+          - servicemonitors
+          verbs:
+          - get
+          - create
+        - apiGroups:
+          - apps
+          resourceNames:
+          - ibm-helm-repo-operator
+          resources:
+          - deployments/finalizers
+          verbs:
+          - update
+        - apiGroups:
+          - ""
+          resources:
+          - pods
+          verbs:
+          - get
+        - apiGroups:
+          - apps
+          resources:
+          - replicasets
+          - deployments
+          verbs:
+          - get
+        - apiGroups:
+          - charts.helm.k8s.io
+          resources:
+          - '*'
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        serviceAccountName: ibm-helm-repo-operator
+    strategy: deployment
+  installModes:
+  - supported: true
+    type: OwnNamespace
+  - supported: true
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - IBM
+  - Cloud
+  maintainers:
+  - email: support@ibm.com
+    name: IBM Support
+  maturity: alpha
+    name: IBM
+  replaces: ibm-helm-repo-operator.v0.0.0
+  version: 0.0.1
