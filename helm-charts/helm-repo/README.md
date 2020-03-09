@@ -5,7 +5,7 @@
 Helm Repo is a helm chart repository for storing and supplying IBM and local charts.
 
 ## Chart Details
-This chart deploys a single instance of a helm repo pod on the master node of a Kubernetes environment.
+This chart deploys a single instance of a helm repo pod on the master node of a Kubernetes environment. 
 
 ## Prerequisites
 * Kubernetes 1.11.0 or later, with beta APIs enabled
@@ -65,7 +65,7 @@ This chart requires a SecurityContextConstraints to be bound to the target names
 The predefined SecurityContextConstraints [`ibm-anyuid-scc`](https://ibm.biz/cpkspec-scc) has been verified for this chart. If your target namespace is not bound to this SecurityContextConstraints resource you can bind it with the following command:
 
 `oc adm policy add-scc-to-group ibm-anyuid-scc system:serviceaccounts:<namespace>` For example, for release into the `default` namespace:
-```
+``` 
 oc adm policy add-scc-to-group ibm-anyuid-scc system:serviceaccounts:default
 ```
 
@@ -110,7 +110,7 @@ volumes:
 ## Installing the Chart
 _NOTE: Helm repo is intended to be installed by the Installer for internal chart management, not by a user_
 
-Only one instance of helm repo should be installed on a cluster.
+Only one instance of helm repo should be installed on a cluster. 
 To install the chart with the release name `helm-repo`:
 
 ```bash
@@ -160,7 +160,7 @@ Parameter                                       | Description                   
 `mongo.clustercertssecret`|mongoDB cluster cert secret|cluster-ca-cert
 `mongo.clientcertssecret`|mongoDB client cert secret|cluster-ca-cert
 `auditService.name`|audit service container name|icp-audit-service
-`auditService.image.repository`|audit service image path|quay.io/opencloudio/icp-helm-repo
+`auditService.image.repository`|audit service image path|quay.io/opencloudio/icp-audit-service
 `auditService.image.tag`|audit service image tag|latest
 `auditService.image.pullPolicy`|audit service image pull policy|IfNotPresent
 `auditService.resources.limits.cpu`|audit service cpu limits|100m
