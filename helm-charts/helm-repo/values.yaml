@@ -4,7 +4,7 @@ auditService:
     enabled: true
   image:
     pullPolicy: IfNotPresent
-    repository: quay.io/opencloudio/icp-helm-repo
+    repository: quay.io/opencloudio/icp-audit-service
     tag: 3.3.1
   name: icp-audit-service
 helmrepo:
@@ -44,9 +44,8 @@ mongo:
   username:
     key: user
     secret: icp-mongodb-admin
-nodeSelector:
-  master: "true"
 replicaCount: 1
+nodeSelector: {}
 runAsUser: 65534
 tolerations:
 - effect: NoSchedule

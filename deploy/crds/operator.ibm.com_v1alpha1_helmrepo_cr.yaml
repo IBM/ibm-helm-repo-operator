@@ -1,7 +1,7 @@
 apiVersion: operator.ibm.com/v1alpha1
 kind: HelmRepo
 metadata:
-  name: helm-repo
+  name: default-helm-repo
 spec:
   # Default values copied from <project_dir>/helm-charts/helm-repo/values.yaml
   # Default values for chart2.
@@ -13,7 +13,7 @@ spec:
       enabled: true
     image:
       pullPolicy: IfNotPresent
-      repository: quay.io/opencloudio/icp-helm-repo
+      repository: quay.io/opencloudio/icp-audit-service
       tag: 3.3.1
     name: icp-audit-service
   helmrepo:
@@ -44,7 +44,7 @@ spec:
       repoAssetsName: repo-assets
   mongo:
     clientcertssecret: icp-mongodb-client-cert
-    clustercertssecret: cluster-ca-cert
+    clustercertssecret: mongodb-root-ca-cert
     host: mongodb
     password:
       key: password
@@ -53,8 +53,7 @@ spec:
     username:
       key: user
       secret: icp-mongodb-admin
-  nodeSelector:
-    master: "true"
+  nodeSelector: {}
   replicaCount: 1
   runAsUser: 65534
   tolerations:
