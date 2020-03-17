@@ -33,7 +33,7 @@ metadata:
               "env": {
                 "CHARTS_REPO_NAME": "local-charts",
                 "CLUSTER_CA_DOMAIN": "mycluster",
-                "CLUSTER_PORT": 8443,
+                "CLUSTER_PORT": 443,
                 "PROXY_ROUTE": "helm-repo"
               },
               "image": {
