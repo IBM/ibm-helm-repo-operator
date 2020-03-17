@@ -24,9 +24,11 @@ spec:
     metadata:
       annotations:
         seccomp.security.alpha.kubernetes.io/pod: docker/default
-        productName: "IBM Multicloud Manager"
-        productID: "5737-E67"
-        productVersion: "3.2.1"
+        productName: IBM Cloud Platform Common Services
+        productID: "068a62892a1e4db39641342e592daa25"
+        productVersion: "3.3.0"
+        productMetric: FREE
+        clusterhealth.ibm.com/dependencies: "ibm-common-services.auth-idp, mongodb"
       labels:
         app: "helm-repo"
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
