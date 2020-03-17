@@ -146,7 +146,7 @@ Parameter                                       | Description                   
 `helmrepo.image.repository`|helm repo image path|quay.io/opencloudio/icp-helm-repo
 `helmrepo.image.tag`|helm repo image tag|latest
 `helmrepo.image.pullPolicy`|helm repo image pull policy|IfNotPresent
-`helmrepo.env.CLUSTER_PORT`|helm repo cluster port|8443
+`helmrepo.env.CLUSTER_PORT`|helm repo cluster port|443
 `helmrepo.env.CLUSTER_CA_DOMAIN`|helm repo cluster domain|mycluster
 `helmrepo.env.PROXY_ROUTE`|helm repo proxy route|helm-repo
 `helmrepo.resources.limits.cpu`|helm repo cpu limits|100m
