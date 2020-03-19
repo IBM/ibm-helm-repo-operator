@@ -163,7 +163,7 @@ spec:
                       fieldPath: metadata.name
                 - name: OPERATOR_NAME
                   value: ibm-helm-repo-operator
-                image: quay.io/opencloudio/ibm-helm-repo-operator
+                image: quay.io/opencloudio/ibm-helm-repo-operator:v3.5.0
                 imagePullPolicy: Always
                 name: ibm-helm-repo-operator
                 resources: {}
