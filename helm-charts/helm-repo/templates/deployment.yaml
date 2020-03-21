@@ -28,7 +28,7 @@ spec:
         productID: "068a62892a1e4db39641342e592daa25"
         productVersion: "3.3.0"
         productMetric: FREE
-        clusterhealth.ibm.com/dependencies: "ibm-common-services.auth-idp, mongodb"
+        clusterhealth.ibm.com/dependencies: "auth-idp, auth-pap, auth-pdp, common-mongodb, helm-api, platform-api"
       labels:
         app: "helm-repo"
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
