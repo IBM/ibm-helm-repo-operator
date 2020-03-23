@@ -15,6 +15,9 @@
 #
 FROM quay.io/operator-framework/helm-operator:v0.15.2
 
+ARG VCS_REF
+ARG VCS_URL
+
 LABEL org.label-schema.vendor="IBM" \
     org.label-schema.name="ibm-helm-repo-operator" \
     org.label-schema.description="IBM Helm Repo Operator" \

@@ -290,5 +290,4 @@ spec:
   maturity: alpha
   provider:
     name: IBM
-  replaces: ibm-helm-repo-operator.v0.0.1
   version: 3.5.0
