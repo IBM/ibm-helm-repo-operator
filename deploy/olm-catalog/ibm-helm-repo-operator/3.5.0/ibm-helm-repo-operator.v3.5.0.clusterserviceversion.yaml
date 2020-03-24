@@ -89,6 +89,13 @@ metadata:
         }
       ]
     capabilities: Basic Install
+    categories: Developer Tools
+    certified: "false"
+    containerImage: quay.io/opencloudio/ibm-helm-repo-operator:v3.5.0
+    createdAt: "2020-03-24T01:00:00Z"
+    description: Helm Repo is a helm chart repository for storing and supplying IBM and local charts.
+    repository: https://github.com/IBM/ibm-helm-repo-operator
+    support: IBM
   name: ibm-helm-repo-operator.v3.5.0
   namespace: ibm-common-services
 spec:
@@ -99,6 +106,15 @@ spec:
       displayName: HelmRepo
       kind: HelmRepo
       name: helmrepos.operator.ibm.com
+      resources:
+      - version: v1
+        kind: Deployment
+      - version: v1
+        kind: ReplicaSet
+      - version: v1
+        kind: Pod
+      - version: v1
+        kind: Service
       version: v1alpha1
   description: Helm Repo is a helm chart repository for storing and supplying IBM
     and local charts.
