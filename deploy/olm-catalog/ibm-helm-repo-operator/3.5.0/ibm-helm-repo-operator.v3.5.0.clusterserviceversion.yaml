@@ -79,7 +79,7 @@ metadata:
     capabilities: Basic Install
     categories: Developer Tools
     certified: "false"
-    containerImage: quay.io/opencloudio/ibm-helm-repo-operator:v3.5.0
+    containerImage: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0
     createdAt: "2020-03-24T01:00:00Z"
     description: Helm Repo is a helm chart repository for storing and supplying IBM
       and local charts.
