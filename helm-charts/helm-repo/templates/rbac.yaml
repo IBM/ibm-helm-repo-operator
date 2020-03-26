@@ -13,7 +13,6 @@ rules:
   resources:
   - securitycontextconstraints 
   resourceNames:
-  - hostaccess
   - privileged
   verbs:
   - use

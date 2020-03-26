@@ -7,7 +7,6 @@ spec:
   # Default values for chart2.
   # This is a YAML-formatted file.
   # Declare variables to be passed into your templates
-  arch: ""
   auditService:
     config:
       enabled: true
@@ -56,9 +55,3 @@ spec:
   nodeSelector: {}
   replicaCount: 1
   runAsUser: 65534
-  tolerations:
-  - effect: NoSchedule
-    key: dedicated
-    operator: Exists
-  - key: CriticalAddonsOnly
-    operator: Exists

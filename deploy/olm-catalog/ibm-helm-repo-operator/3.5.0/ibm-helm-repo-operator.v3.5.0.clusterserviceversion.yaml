@@ -11,7 +11,6 @@ metadata:
             "name": "helm-repo"
           },
           "spec": {
-            "arch": "",
             "auditService": {
               "config": {
                 "enabled": true
@@ -73,18 +72,7 @@ metadata:
             },
             "nodeSelector": {},
             "replicaCount": 1,
-            "runAsUser": 65534,
-            "tolerations": [
-              {
-                "effect": "NoSchedule",
-                "key": "dedicated",
-                "operator": "Exists"
-              },
-              {
-                "key": "CriticalAddonsOnly",
-                "operator": "Exists"
-              }
-            ]
+            "runAsUser": 65534
           }
         }
       ]
@@ -93,7 +81,8 @@ metadata:
     certified: "false"
     containerImage: quay.io/opencloudio/ibm-helm-repo-operator:v3.5.0
     createdAt: "2020-03-24T01:00:00Z"
-    description: Helm Repo is a helm chart repository for storing and supplying IBM and local charts.
+    description: Helm Repo is a helm chart repository for storing and supplying IBM
+      and local charts.
     repository: https://github.com/IBM/ibm-helm-repo-operator
     support: IBM
   name: ibm-helm-repo-operator.v3.5.0
@@ -107,14 +96,50 @@ spec:
       kind: HelmRepo
       name: helmrepos.operator.ibm.com
       resources:
-      - version: v1
-        kind: Deployment
-      - version: v1
-        kind: ReplicaSet
-      - version: v1
-        kind: Pod
-      - version: v1
-        kind: Service
+      - kind: Deployment
+        name: Deployment
+        version: v1
+      - kind: Ingress
+        name: Ingress
+        version: extensions/v1beta1
+      - kind: Pod
+        name: Pod
+        version: v1
+      - kind: RoleBinding
+        name: RoleBinding
+        version: rbac.authorization.k8s.io/v1
+      - kind: Service
+        name: Service
+        version: v1
+      - kind: ServiceAccount
+        name: ServiceAccount
+        version: v1
+      specDescriptors:
+      - description: Audit service
+        displayName: Helm repo audit logging component
+        path: auditService
+      - description: Component for storing and managing local charts
+        displayName: Helm repo
+        path: helmrepo
+      - description: Database component for storing chart information
+        displayName: MongoDB
+        path: mongo
+      - description: Criteria for selecting node to run on
+        displayName: Node selector criteria
+        path: nodeSelector
+      - description: How many pods to run simultaneously
+        displayName: Replica count
+        path: replicaCount
+      - description: What user to run as
+        displayName: Run as User
+        path: runAsUser
+      statusDescriptors:
+      - description: Conditions contains the observed states of the Helm release
+        displayName: Conditions
+        path: conditions
+      - description: Deployed Release shows the manifest of the deployed Helm release
+        displayName: Deployed Release
+        path: deployedRelease
       version: v1alpha1
   description: Helm Repo is a helm chart repository for storing and supplying IBM
     and local charts.
@@ -179,7 +204,7 @@ spec:
                       fieldPath: metadata.name
                 - name: OPERATOR_NAME
                   value: ibm-helm-repo-operator
-                image: quay.io/opencloudio/ibm-helm-repo-operator:v3.5.0
+                image: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0
                 imagePullPolicy: Always
                 name: ibm-helm-repo-operator
                 resources: {}

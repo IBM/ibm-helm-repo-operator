@@ -159,8 +159,18 @@ ifeq ($(TARGET_OS),$(filter $(TARGET_OS),linux darwin))
 	@echo "Merging and push multi-arch image $(REGISTRY)/$(IMG):latest"
 	@/tmp/manifest-tool --username $(QUAY_USERNAME) --password $(QUAY_PASSWORD) push from-args --platforms linux/amd64,linux/ppc64le,linux/s390x --template $(REGISTRY)/$(IMG)-ARCH:$(VERSION) --target $(REGISTRY)/$(IMG):latest --ignore-missing
 	@echo "Merging and push multi-arch image $(REGISTRY)/$(IMG):v$(CSV_VERSION)"
-	@/tmp/manifest-tool --username $(QUAY_USERNAME) --password $(QUAY_PASSWORD) push from-args --platforms linux/amd64,linux/ppc64le,linux/s390x --template $(REGISTRY)/$(IMG)-ARCH:$(VERSION) --target $(REGISTRY)/$(IMG):v$(CSV_VERSION) --ignore-missing
+	@/tmp/manifest-tool --username $(QUAY_USERNAME) --password $(QUAY_PASSWORD) push from-args --platforms linux/amd64,linux/ppc64le,linux/s390x --template $(REGISTRY)/$(IMG)-ARCH:$(VERSION) --target $(REGISTRY)/$(IMG):$(CSV_VERSION) --ignore-missing
 endif
+
+############################################################
+# Dev image section
+############################################################
+
+dev-image: clean build-amd64 push-amd64-dev ## Release development amd64 operator image 
+
+push-amd64-dev:
+	@docker tag $(REGISTRY)/$(IMG)-amd64:$(VERSION) $(REGISTRY)/$(IMG):dev
+	@docker push $(REGISTRY)/$(IMG):dev
 
 ############################################################
 # application section
