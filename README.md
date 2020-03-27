@@ -1,4 +1,4 @@
-# ibm-helm-repo-operator
+# IBM Helm Repo Operator
 
 Operator used to manager IBM Helm Repo service. Helm Repo is a helm chart repository for storing and supplying IBM and local charts.
 
