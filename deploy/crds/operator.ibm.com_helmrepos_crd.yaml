@@ -107,9 +107,6 @@ spec:
                       type: string
                     repoAssetsName:
                       type: string
-            
-                        
-              x-kubernetes-preserve-unknown-fields: true
             mongo:
               type: object
               properties:
