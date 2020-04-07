@@ -30,16 +30,110 @@ spec:
           properties:
             auditService:
               type: object
-              x-kubernetes-preserve-unknown-fields: true
+              properties:
+                config:
+                  type: object
+                  properties:
+                    enabled:
+                     type: boolean
+                image:
+                  type: object
+                  properties:
+                    pullPolicy:
+                      type: string
+                    repository:
+                      type: string
+                    tag:
+                      type: string
+                name:
+                  type: string
             helmrepo:
               type: object
-              x-kubernetes-preserve-unknown-fields: true
+              properties:
+                WLP_Creds:
+                  type: object
+                  properties:
+                    oidcClientId:
+                      type: string #could be int
+                    oidcClientSecret:
+                      type: string
+                    oidcName: 
+                      type: string
+                    redirectURL:
+                      type: string
+                env:
+                  type: object
+                  properties:
+                    CHARTS_REPO_NAME:
+                      type: string
+                    CLUSTER_CA_DOMAIN:
+                      type: string
+                    CLUSTER_PORT:
+                      type: integer
+                    PROXY_ROUTE:
+                      type: string
+                image:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    pullPolicy:
+                      type: string
+                    repository:
+                      type: string
+                    tag:
+                      type: string
+                resources:
+                  type: object
+                  properties:
+                    limits:
+                      type: object
+                      properties:
+                        cpu:
+                          type: string
+                        memory:
+                          type: string
+                    requests:
+                      type: object
+                      properties:
+                        cpu:
+                          type: string
+                        memory:
+                          type: string
+                volumeMounts:
+                  type: object
+                  properties:
+                    repoAssetsMountPath:
+                      type: string
+                    repoAssetsName:
+                      type: string
             mongo:
               type: object
-              x-kubernetes-preserve-unknown-fields: true
+              properties:
+                clientcertssecret:
+                  type: string
+                clustercertssecret:
+                  type: string
+                host:
+                  type: string
+                password:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                    secret:
+                      type: string
+                port:
+                  type: integer
+                username:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                    secret:
+                      type: string
             nodeSelector:
               type: object
-              x-kubernetes-preserve-unknown-fields: true
             replicaCount:
               type: integer
             runAsUser:
@@ -50,7 +144,6 @@ spec:
           - replicaCount
           - runAsUser
           type: object
-          x-kubernetes-preserve-unknown-fields: true
         status:
           properties:
             conditions:
