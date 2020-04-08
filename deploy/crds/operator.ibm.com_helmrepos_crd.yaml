@@ -13,7 +13,6 @@ spec:
   subresources:
     status: 
       description: 'placeholder description'
-      type: object
   validation:
     openAPIV3Schema:
       description: HelmRepo is the Schema for the helmrepos API
