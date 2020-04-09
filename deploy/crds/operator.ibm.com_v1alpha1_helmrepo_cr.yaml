@@ -2,6 +2,11 @@ apiVersion: operator.ibm.com/v1alpha1
 kind: HelmRepo
 metadata:
   name: helm-repo
+  labels: 
+    app.kubernetes.io/instance: my-instance #this value and the one below taken from lint rules example
+    app.kubernetes.io/managed-by: my-heritage 
+    app.kubernetes.io/name: helm-repo
+  
 spec:
   # Default values copied from <project_dir>/helm-charts/helm-repo/values.yaml
   # Default values for chart2.
