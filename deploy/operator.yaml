@@ -25,28 +25,6 @@ spec:
             - matchExpressions:
               - key: kubernetes.io/arch
       containers:
-        resources:
-          limits:
-            cpu: 100m
-            memory: 512Mi
-          requests:
-            cpu: 100m
-            memory: 512Mi
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
-          privileged: false
-          readOnlyRootFilesystem: true
-          runAsNonRoot: true
-          runAsUser: 1001
-        hostIPC: false
-        hostNetwork: false
-        hostPID: false
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 1001
         - name: ibm-helm-repo-operator
           # Replace this with the built image name
           image: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0
@@ -62,3 +40,19 @@ spec:
                   fieldPath: metadata.name
             - name: OPERATOR_NAME
               value: "ibm-helm-repo-operator"
+          resources:
+            limits:
+              cpu: 100m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1001
