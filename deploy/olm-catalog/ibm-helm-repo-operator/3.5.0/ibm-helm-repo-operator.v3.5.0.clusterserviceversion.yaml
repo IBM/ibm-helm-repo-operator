@@ -87,10 +87,10 @@ metadata:
     support: IBM
   name: ibm-helm-repo-operator.v3.5.0
   namespace: ibm-common-services
-  labels: 
-    app.kubernetes.io/instance: my-instance #this value and the one below taken from lint rules example
-    app.kubernetes.io/managed-by: my-heritage 
-    app.kubernetes.io/name: helm-repo
+  # labels: 
+  #   app.kubernetes.io/instance: my-instance #this value and the one below taken from lint rules example
+  #   app.kubernetes.io/managed-by: my-heritage 
+  #   app.kubernetes.io/name: helm-repo
 spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
