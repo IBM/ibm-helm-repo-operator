@@ -12,5 +12,6 @@ keywords:
 - ppc64le
 - s390x
 kubeVersion: '>=1.11.0'
+tillerVersion: '>=2.16.1'
 name: helm-repo
 version: 3.5.0
