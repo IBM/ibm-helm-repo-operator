@@ -44,9 +44,6 @@ spec:
         hostIPC: false
         hostNetwork: false
         hostPID: false
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 1001
         - name: ibm-helm-repo-operator
           # Replace this with the built image name
           image: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0
