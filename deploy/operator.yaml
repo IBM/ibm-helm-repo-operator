@@ -25,14 +25,14 @@ spec:
             - matchExpressions:
               - key: kubernetes.io/arch
       containers:
-        - resources:
+        resources:
           limits:
             cpu: 100m
             memory: 512Mi
           requests:
             cpu: 100m
             memory: 512Mi
-        - securityContext:
+        securityContext:
           allowPrivilegeEscalation: false
           capabilities:
             drop:
@@ -44,6 +44,9 @@ spec:
         hostIPC: false
         hostNetwork: false
         hostPID: false
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1001
         - name: ibm-helm-repo-operator
           # Replace this with the built image name
           image: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0
