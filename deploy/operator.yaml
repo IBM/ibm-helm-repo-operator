@@ -26,6 +26,9 @@ spec:
         productVersion: "3.3.0"
         productMetric: FREE
     spec:
+      hostNetwork: false
+      hostPID: false
+      hostIPC: false
       serviceAccountName: ibm-helm-repo-operator
       affinity:
         nodeAffinity:

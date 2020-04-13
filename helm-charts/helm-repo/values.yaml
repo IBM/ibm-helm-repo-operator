@@ -1,4 +1,4 @@
-arch: ""
+#arch: ""
 auditService:
   config:
     enabled: true
@@ -45,7 +45,8 @@ mongo:
     key: user
     secret: icp-mongodb-admin
 replicaCount: 1
-nodeSelector: {}
+nodeSelector: 
+  master: ""
 runAsUser: 65534
 tolerations:
 - effect: NoSchedule
