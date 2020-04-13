@@ -11,6 +11,9 @@ spec:
     metadata:
       labels:
         name: ibm-helm-repo-operator
+        app.kubernetes.io/instance: helmrepos.operator.ibm.com
+        app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
+        app.kubernetes.io/name: helmrepos.operator.ibm.com
       annotations:
         productName: IBM Cloud Platform Common Services
         productID: "068a62892a1e4db39641342e592daa25"
