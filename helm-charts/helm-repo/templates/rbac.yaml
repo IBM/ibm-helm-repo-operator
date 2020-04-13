@@ -13,6 +13,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: helm-repo-privileged-role
+  labels:
+    name: helm-repo-privileged-role
+    app.kubernetes.io/instance: helmrepos.operator.ibm.com
+    app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
+    app.kubernetes.io/name: helmrepos.operator.ibm.com
+    helm.sh/chart: helm-repo
 rules:
 - apiGroups:
   - security.openshift.io 
@@ -27,6 +33,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: helm-repo-privileged
+  labels:
+    name: helm-repo-privileged
+    app.kubernetes.io/instance: helmrepos.operator.ibm.com
+    app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
+    app.kubernetes.io/name: helmrepos.operator.ibm.com
+    helm.sh/chart: helm-repo
 subjects:
 - kind: ServiceAccount
   name: helm-repo-sa
