@@ -1,6 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
+  name: ibm-helm-repo-operator
   labels:
     name: ibm-helm-repo-operator
     app.kubernetes.io/instance: helmrepos.operator.ibm.com

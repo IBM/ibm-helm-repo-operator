@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata: 
+  name: helm-repo-sa
   labels:
     name: helm-repo-sa
     app.kubernetes.io/instance: helmrepos.operator.ibm.com
