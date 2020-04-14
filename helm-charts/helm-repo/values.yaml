@@ -1,4 +1,4 @@
-#arch: ""
+arch: ""
 auditService:
   config:
     enabled: true
