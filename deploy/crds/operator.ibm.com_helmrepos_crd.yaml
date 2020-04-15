@@ -174,7 +174,7 @@ spec:
                 name:
                   type: string
               type: object
-            type: object
+          type: object
       required:
       - metadata
       - spec     
