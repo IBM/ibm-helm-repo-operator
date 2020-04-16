@@ -20,7 +20,17 @@ metadata:
                 "repository": "quay.io/opencloudio/icp-audit-service",
                 "tag": "3.4.0"
               },
-              "name": "icp-audit-service"
+              "name": "icp-audit-service",
+              "resources": {
+                "limits": {
+                  "cpu": "100m",
+                  "memory": "512Mi"
+                },
+                "requests": {
+                  "cpu": "100m",
+                  "memory": "512Mi"
+                }
+              }
             },
             "helmrepo": {
               "WLP_Creds": {
