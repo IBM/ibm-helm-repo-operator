@@ -3,8 +3,9 @@ auditService:
   config:
     enabled: true
   image:
+    imageRegistry: quay.io/opencloudio
     pullPolicy: IfNotPresent
-    repository: quay.io/opencloudio/icp-audit-service
+    repository: icp-audit-service
     tag: 3.4.0
   name: icp-audit-service
   resources:
@@ -27,8 +28,9 @@ helmrepo:
     PROXY_ROUTE: helm-repo
   image:
     name: helm-repo
+    imageRegistry: quay.io/opencloudio
     pullPolicy: IfNotPresent
-    repository: quay.io/opencloudio/icp-helm-repo
+    repository: icp-helm-repo
     tag: 3.3.0
   resources:
     limits:

@@ -40,6 +40,8 @@ spec:
                 image:
                   type: object
                   properties:
+                    imageRegistry:
+                      type: string
                     pullPolicy:
                       type: string
                     repository:
@@ -76,6 +78,8 @@ spec:
                 image:
                   type: object
                   properties:
+                    imageRegistry:
+                      type: string
                     name:
                       type: string
                     pullPolicy:
