@@ -9,11 +9,11 @@ auditService:
   name: icp-audit-service
   resources:
     limits:
-      cpu: 100m
-      memory: 512Mi
+      cpu: 200m
+      memory: 250Mi
     requests:
-      cpu: 100m
-      memory: 512Mi
+      cpu: 200m
+      memory: 250Mi
 helmrepo:
   WLP_Creds:
     oidcClientId: WLP_CLIENT_ID
