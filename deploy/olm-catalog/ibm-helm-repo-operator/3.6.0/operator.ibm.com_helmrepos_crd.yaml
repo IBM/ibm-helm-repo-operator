@@ -30,15 +30,13 @@ spec:
         spec:
           properties:
             auditService:
-              type: object
               properties:
                 config:
-                  type: object
                   properties:
                     enabled:
                      type: boolean
-                image:
                   type: object
+                image:
                   properties:
                     imageRegistry:
                       type: string
@@ -48,39 +46,13 @@ spec:
                       type: string
                     tag:
                       type: string
-                name:
-                  type: string
-            helmrepo:
+                  type: object
               type: object
+            helmrepo:
               properties:
-                WLP_Creds:
-                  type: object
-                  properties:
-                    oidcClientId:
-                      type: string #could be int
-                    oidcClientSecret:
-                      type: string
-                    oidcName: 
-                      type: string
-                    redirectURL:
-                      type: string
-                env:
-                  type: object
-                  properties:
-                    CHARTS_REPO_NAME:
-                      type: string
-                    CLUSTER_CA_DOMAIN:
-                      type: string
-                    CLUSTER_PORT:
-                      type: integer
-                    PROXY_ROUTE:
-                      type: string
                 image:
-                  type: object
                   properties:
                     imageRegistry:
-                      type: string
-                    name:
                       type: string
                     pullPolicy:
                       type: string
@@ -88,6 +60,7 @@ spec:
                       type: string
                     tag:
                       type: string
+                  type: object
                 resources:
                   type: object
                   properties:
@@ -105,49 +78,9 @@ spec:
                           type: string
                         memory:
                           type: string
-                volumeMounts:
-                  type: object
-                  properties:
-                    repoAssetsMountPath:
-                      type: string
-                    repoAssetsName:
-                      type: string
-            mongo:
-              type: object
-              properties:
-                clientcertssecret:
-                  type: string
-                clustercertssecret:
-                  type: string
-                host:
-                  type: string
-                password:
-                  type: object
-                  properties:
-                    key:
-                      type: string
-                    secret:
-                      type: string
-                port:
-                  type: integer
-                username:
-                  type: object
-                  properties:
-                    key:
-                      type: string
-                    secret:
-                      type: string
-            nodeSelector:
               type: object
             replicaCount:
               type: integer
-            runAsUser:
-              type: integer
-          required:
-          - helmrepo
-          - mongo
-          - replicaCount
-          - runAsUser
           type: object
         status:
           properties:
@@ -183,8 +116,8 @@ spec:
       - metadata
       - spec     
       type: object
-  version: v1alpha1
+  version: v1
   versions:
-  - name: v1alpha1
+  - name: v1
     served: true
     storage: true

@@ -44,7 +44,7 @@ helmrepo:
     repoAssetsName: repo-assets
 mongo:
   clientcertssecret: icp-mongodb-client-cert
-  clustercertssecret: cluster-ca-cert
+  clustercertssecret: mongodb-root-ca-cert
   host: mongodb
   password:
     key: password
