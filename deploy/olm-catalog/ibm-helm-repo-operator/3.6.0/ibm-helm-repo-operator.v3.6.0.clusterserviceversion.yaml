@@ -5,7 +5,7 @@ metadata:
     alm-examples: |-
       [
         {
-          "apiVersion": "operator.ibm.com/v1alpha1",
+          "apiVersion": "operator.ibm.com/v1",
           "kind": "HelmRepo",
           "metadata": {
             "name": "helm-repo"
@@ -21,7 +21,6 @@ metadata:
                 "repository": "icp-audit-service",
                 "tag": "3.4.0"
               },
-              "name": "icp-audit-service",
               "resources": {
                 "limits": {
                   "cpu": "200m",
@@ -34,21 +33,8 @@ metadata:
               }
             },
             "helmrepo": {
-              "WLP_Creds": {
-                "oidcClientId": "WLP_CLIENT_ID",
-                "oidcClientSecret": "WLP_CLIENT_SECRET",
-                "oidcName": "platform-oidc-credentials",
-                "redirectURL": "http://localhost:3001/auth/liberty/callback"
-              },
-              "env": {
-                "CHARTS_REPO_NAME": "local-charts",
-                "CLUSTER_CA_DOMAIN": "mycluster",
-                "CLUSTER_PORT": 443,
-                "PROXY_ROUTE": "helm-repo"
-              },
               "image": {
                 "imageRegistry": "quay.io/opencloudio",
-                "name": "helm-repo",
                 "pullPolicy": "IfNotPresent",
                 "repository": "icp-helm-repo",
                 "tag": "3.3.0"
@@ -62,29 +48,9 @@ metadata:
                   "cpu": "100m",
                   "memory": "512Mi"
                 }
-              },
-              "volumeMounts": {
-                "repoAssetsMountPath": "/home/node/app/assets",
-                "repoAssetsName": "repo-assets"
               }
             },
-            "mongo": {
-              "clientcertssecret": "icp-mongodb-client-cert",
-              "clustercertssecret": "mongodb-root-ca-cert",
-              "host": "mongodb",
-              "password": {
-                "key": "password",
-                "secret": "icp-mongodb-admin"
-              },
-              "port": 27017,
-              "username": {
-                "key": "user",
-                "secret": "icp-mongodb-admin"
-              }
-            },
-            "nodeSelector": {},
-            "replicaCount": 1,
-            "runAsUser": 65534
+            "replicaCount": 1
           }
         },
         {
@@ -164,18 +130,9 @@ spec:
       - description: Component for storing and managing local charts
         displayName: Helm repo
         path: helmrepo
-      - description: Database component for storing chart information
-        displayName: MongoDB
-        path: mongo
-      - description: Criteria for selecting node to run on
-        displayName: Node selector criteria
-        path: nodeSelector
       - description: How many pods to run simultaneously
         displayName: Replica count
         path: replicaCount
-      - description: What user to run as
-        displayName: Run as User
-        path: runAsUser
       statusDescriptors:
       - description: Conditions contains the observed states of the Helm release
         displayName: Conditions
@@ -183,7 +140,7 @@ spec:
       - description: Deployed Release shows the manifest of the deployed Helm release
         displayName: Deployed Release
         path: deployedRelease
-      version: v1alpha1
+      version: v1
   description: Helm Repo is a helm chart repository for storing and supplying IBM
     and local charts.
   displayName: IBM Helm Repo Operator
@@ -371,7 +328,7 @@ spec:
   maintainers:
   - email: support@ibm.com
     name: IBM Support
-  maturity: alpha
+  maturity: stable
   provider:
     name: IBM
   replaces: ibm-helm-repo-operator.v3.5.0
