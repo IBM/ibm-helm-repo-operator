@@ -80,7 +80,7 @@ metadata:
               }
             ]
           }
-        }
+        }        
       ]
     capabilities: Basic Install
     categories: Developer Tools
@@ -204,7 +204,7 @@ spec:
                       fieldPath: metadata.name
                 - name: OPERATOR_NAME
                   value: ibm-helm-repo-operator
-                image: quay.io/opencloudio/ibm-helm-repo-operator:3.6.0
+                image: quay.io/opencloudio/ibm-helm-repo-operator:latest
                 imagePullPolicy: Always
                 name: ibm-helm-repo-operator
                 resources: {}
