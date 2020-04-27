@@ -63,7 +63,7 @@ metadata:
           "apiVersion":"operator.ibm.com/v1alpha1",
           "kind":"OperandRequest",
           "metadata":{
-            "name":"helm-api-request"
+            "name":"helm-repo-request"
           },
           "spec":{
             "requests":[

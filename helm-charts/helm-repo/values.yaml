@@ -14,7 +14,7 @@ auditService:
       memory: 250Mi
     requests:
       cpu: 200m
-      memory: 250M
+      memory: 250Mi
 helmrepo:
   WLP_Creds:
     oidcClientId: WLP_CLIENT_ID
