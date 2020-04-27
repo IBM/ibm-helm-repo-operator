@@ -2,6 +2,11 @@ apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   name: helmrepos.operator.ibm.com
+  labels:
+    name: helmrepos.operator.ibm.com
+    app.kubernetes.io/instance: helmrepos.operator.ibm.com
+    app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
+    app.kubernetes.io/name: helmrepos.operator.ibm.com
 spec:
   group: operator.ibm.com
   names:
@@ -15,7 +20,18 @@ spec:
   validation:
     openAPIV3Schema:
       type: object
-      x-kubernetes-preserve-unknown-fields: true
+      description: HelmRepo is the Schema for the helmrepos API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
   versions:
   - name: v1alpha1
     served: true

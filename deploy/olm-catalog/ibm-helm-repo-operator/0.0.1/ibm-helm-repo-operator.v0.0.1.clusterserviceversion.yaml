@@ -91,6 +91,10 @@ metadata:
     capabilities: Basic Install
   name: ibm-helm-repo-operator.v0.0.1
   namespace: ibm-common-services
+  # labels: 
+  #   app.kubernetes.io/instance: my-instance #this value and the one below taken from lint rules example
+  #   app.kubernetes.io/managed-by: my-heritage 
+  #   app.kubernetes.io/name: helm-repo
 spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
