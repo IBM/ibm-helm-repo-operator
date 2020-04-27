@@ -59,6 +59,37 @@ metadata:
             "replicaCount": 1
           }
         }
+        {
+          "apiVersion":"operator.ibm.com/v1alpha1",
+          "kind":"OperandRequest",
+          "metadata":{
+            "name":"helm-api-request"
+          },
+          "spec":{
+            "requests":[
+              {
+                "operands":[
+                  {
+                    "name":"ibm-cert-manager-operator"
+                  },
+                  {
+                    "name":"ibm-mongodb-operator"
+                  },
+                  {
+                    "name":"ibm-iam-operator"
+                  },                                    
+                  {
+                    "name":"ibm-management-ingress-operator"
+                  },
+                  {
+                    "name":"ibm-platform-api-operator"
+                  }
+                ],
+                "registry":"common-service"
+              }
+            ]
+          }
+        }
       ]
     capabilities: Basic Install
     categories: Developer Tools
