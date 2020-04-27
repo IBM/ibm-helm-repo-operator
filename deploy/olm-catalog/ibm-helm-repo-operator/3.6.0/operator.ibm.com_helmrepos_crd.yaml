@@ -52,6 +52,23 @@ spec:
                     tag:
                       type: string
                   type: object
+                resources:
+                  type: object
+                  properties:
+                    limits:
+                      type: object
+                      properties:
+                        cpu:
+                          type: string
+                        memory:
+                          type: string
+                    requests:
+                      type: object
+                      properties:
+                        cpu:
+                          type: string
+                        memory:
+                          type: string
               type: object
             helmrepo:
               properties:
