@@ -43,7 +43,7 @@ spec:
                   - s390x
       containers:
         - name: ibm-helm-repo-operator
-          image: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0 #make sure to update this to 3.6.0 when available
+          image: quay.io/opencloudio/ibm-helm-repo-operator:latest
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE

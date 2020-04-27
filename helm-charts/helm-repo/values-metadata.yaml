@@ -67,7 +67,7 @@ helmrepo:
     imageRegistry:
       __metadata:
         name: "imageRegistry"
-        label: "Docker registry"
+        label: "Image registry"
         description: "helmrepo.image.imageRegistry: Registry for the platform api image"
         type: "string"
         immutable: false
@@ -267,7 +267,7 @@ auditService:
     imageRegistry:
       __metadata:
         name: "imageRegistry"
-        label: "Docker registry"
+        label: "Image Registry"
         description: "helmrepo.image.imageRegistry: Registry for the platform api image"
         type: "string"
         immutable: false
