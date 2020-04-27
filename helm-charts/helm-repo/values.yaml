@@ -3,8 +3,9 @@ auditService:
   config:
     enabled: true
   image:
+    imageRegistry: quay.io/opencloudio
     pullPolicy: IfNotPresent
-    repository: quay.io/opencloudio/icp-audit-service
+    repository: icp-audit-service
     tag: 3.4.0
   name: icp-audit-service
 helmrepo:
@@ -20,8 +21,9 @@ helmrepo:
     PROXY_ROUTE: helm-repo
   image:
     name: helm-repo
+    imageRegistry: quay.io/opencloudio
     pullPolicy: IfNotPresent
-    repository: quay.io/opencloudio/icp-helm-repo
+    repository: icp-helm-repo
     tag: 3.3.0
   resources:
     limits:
@@ -35,7 +37,7 @@ helmrepo:
     repoAssetsName: repo-assets
 mongo:
   clientcertssecret: icp-mongodb-client-cert
-  clustercertssecret: cluster-ca-cert
+  clustercertssecret: mongodb-root-ca-cert
   host: mongodb
   password:
     key: password

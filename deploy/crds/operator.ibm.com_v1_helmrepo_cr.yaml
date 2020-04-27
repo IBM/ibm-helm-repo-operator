@@ -1,4 +1,4 @@
-apiVersion: operator.ibm.com/v1alpha1
+apiVersion: operator.ibm.com/v1
 kind: HelmRepo
 metadata:
   name: helmrepos.operator.ibm.com
@@ -16,25 +16,22 @@ spec:
     config:
       enabled: true
     image:
+      imageRegistry: quay.io/opencloudio
       pullPolicy: IfNotPresent
-      repository: quay.io/opencloudio/icp-audit-service
+      repository: icp-audit-service
       tag: 3.4.0
-    name: icp-audit-service
+    resources:
+      limits:
+        cpu: 200m
+        memory: 250Mi
+      requests:
+        cpu: 200m
+        memory: 250Mi
   helmrepo:
-    WLP_Creds:
-      oidcClientId: WLP_CLIENT_ID
-      oidcClientSecret: WLP_CLIENT_SECRET
-      oidcName: platform-oidc-credentials
-      redirectURL: http://localhost:3001/auth/liberty/callback
-    env:
-      CHARTS_REPO_NAME: local-charts
-      CLUSTER_CA_DOMAIN: mycluster
-      CLUSTER_PORT: 443
-      PROXY_ROUTE: helm-repo
     image:
-      name: helm-repo
+      imageRegistry: quay.io/opencloudio
       pullPolicy: IfNotPresent
-      repository: quay.io/opencloudio/icp-helm-repo
+      repository: icp-helm-repo
       tag: 3.3.0
     resources:
       limits:
@@ -46,17 +43,4 @@ spec:
     volumeMounts:
       repoAssetsMountPath: /home/node/app/assets
       repoAssetsName: repo-assets
-  mongo:
-    clientcertssecret: icp-mongodb-client-cert
-    clustercertssecret: mongodb-root-ca-cert
-    host: mongodb
-    password:
-      key: password
-      secret: icp-mongodb-admin
-    port: 27017
-    username:
-      key: user
-      secret: icp-mongodb-admin
-  nodeSelector: {}
   replicaCount: 1
-  runAsUser: 65534
