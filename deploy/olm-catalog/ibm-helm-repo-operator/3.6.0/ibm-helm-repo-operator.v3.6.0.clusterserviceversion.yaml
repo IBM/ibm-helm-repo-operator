@@ -8,7 +8,13 @@ metadata:
           "apiVersion": "operator.ibm.com/v1",
           "kind": "HelmRepo",
           "metadata": {
-            "name": "helm-repo"
+            "labels": {
+              "app.kubernetes.io/instance": "helmrepos.operator.ibm.com",
+              "app.kubernetes.io/managed-by": "helmrepos.operator.ibm.com",
+              "app.kubernetes.io/name": "helmrepos.operator.ibm.com",
+              "name": "helmrepos.operator.ibm.com"
+            },
+            "name": "helmrepos.operator.ibm.com"
           },
           "spec": {
             "auditService": {
@@ -71,16 +77,19 @@ metadata:
                   },
                   {
                     "name":"ibm-iam-operator"
+                  },                                    
+                  {
+                    "name":"ibm-management-ingress-operator"
                   },
                   {
                     "name":"ibm-platform-api-operator"
-                  }                  
+                  }
                 ],
                 "registry":"common-service"
               }
             ]
           }
-        }        
+        }
       ]
     capabilities: Basic Install
     categories: Developer Tools
@@ -190,8 +199,23 @@ spec:
                 productName: IBM Cloud Platform Common Services
                 productVersion: 3.3.0
               labels:
+                app.kubernetes.io/instance: helmrepos.operator.ibm.com
+                app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
+                app.kubernetes.io/name: helmrepos.operator.ibm.com
                 name: ibm-helm-repo-operator
+              name: ibm-helm-repo-operator
             spec:
+              affinity:
+                nodeAffinity:
+                  requiredDuringSchedulingIgnoredDuringExecution:
+                    nodeSelectorTerms:
+                    - matchExpressions:
+                      - key: kubernetes.io/arch
+                        operator: In
+                        values:
+                        - amd64
+                        - ppc64le
+                        - s390x
               containers:
               - env:
                 - name: WATCH_NAMESPACE
@@ -207,7 +231,22 @@ spec:
                 image: quay.io/opencloudio/ibm-helm-repo-operator:latest
                 imagePullPolicy: Always
                 name: ibm-helm-repo-operator
-                resources: {}
+                resources:
+                  limits:
+                    cpu: 100m
+                    memory: 512Mi
+                  requests:
+                    cpu: 100m
+                    memory: 512Mi
+                securityContext:
+                  allowPrivilegeEscalation: false
+                  capabilities:
+                    drop:
+                    - ALL
+                  privileged: false
+                  readOnlyRootFilesystem: true
+                  runAsNonRoot: true
+                  runAsUser: 1001
               serviceAccountName: ibm-helm-repo-operator
       permissions:
       - rules:
