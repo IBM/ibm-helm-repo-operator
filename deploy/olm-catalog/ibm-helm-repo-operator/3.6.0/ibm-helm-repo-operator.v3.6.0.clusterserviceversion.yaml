@@ -58,7 +58,7 @@ metadata:
             },
             "replicaCount": 1
           }
-        }
+        },
         {
           "apiVersion":"operator.ibm.com/v1alpha1",
           "kind":"OperandRequest",
