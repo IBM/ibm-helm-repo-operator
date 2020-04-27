@@ -16,8 +16,7 @@ spec:
     singular: helmrepo
   scope: Namespaced
   subresources:
-    status: 
-      description: 'placeholder description'
+    status: {}
   validation:
     openAPIV3Schema:
       description: HelmRepo is the Schema for the helmrepos API
@@ -51,7 +50,6 @@ spec:
                       type: string
                     tag:
                       type: string
-                  type: object
                 resources:
                   type: object
                   properties:
@@ -69,7 +67,6 @@ spec:
                           type: string
                         memory:
                           type: string
-              type: object
             helmrepo:
               properties:
                 image:
@@ -137,7 +134,7 @@ spec:
       required:
       - metadata
       - spec     
-      type: object
+      #type: object #will need to uncomment this line out down the road
   version: v1
   versions:
   - name: v1
