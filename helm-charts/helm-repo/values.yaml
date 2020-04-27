@@ -8,6 +8,13 @@ auditService:
     repository: icp-audit-service
     tag: 3.4.0
   name: icp-audit-service
+  resources:
+    limits:
+      cpu: 200m
+      memory: 250Mi
+    requests:
+      cpu: 200m
+      memory: 250Mi
 helmrepo:
   WLP_Creds:
     oidcClientId: WLP_CLIENT_ID
