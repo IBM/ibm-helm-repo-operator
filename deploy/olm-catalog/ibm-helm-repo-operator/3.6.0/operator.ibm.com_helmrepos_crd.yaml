@@ -134,7 +134,7 @@ spec:
       required:
       - metadata
       - spec     
-      #type: object #will need to uncomment this line out down the road
+      type: object #will need to uncomment this line out down the road
   version: v1
   versions:
   - name: v1
