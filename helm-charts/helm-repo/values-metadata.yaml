@@ -12,38 +12,11 @@ replicaCount:
     type: "number"
     immutable: true
     required: true
-nodeSelector:
-  __metadata:
-    label: "Node selector criteria"
-    description: "Criteria for selecting node to run on"
-    hidden: true
-  master:
-    __metadata:
-      label: "Master node selector"
-      description: "Determines whether the component is scheduled on the master node"
-      type: string
-      immutable: true
-      hidden: true
 tolerations:
   __metadata:
     label: "Tolerations"
     description: "Pod tolerations for assigning to nodes with matching taints"
     required: true
-
-# arch:
-#   __metadata:
-#     label: "Node architecture"
-#     description: "Node architecture to deploy to. The helm chart will try to detect the architecture based on the master node."
-#     type: "string"
-#     immutable: false
-#     required: false
-#     options:
-#       - label: "amd64"
-#         value: "amd64"
-#       - label: "ppc64le"
-#         value: "ppc64le"
-#       - label: "s390x"
-#         value: "s390x"
 
 runAsUser:
   __metadata:
