@@ -88,11 +88,11 @@ spec:
           mountPath: "/var/log/audit"
         resources:
           limits:
-            cpu: 100m
-            memory: 128Mi
+            cpu: {{ .Values.auditService.resources.limits.cpu }}
+            memory: {{ .Values.auditService.resources.limits.memory }}
           requests:
-            cpu: 50m
-            memory: 128Mi
+            cpu: {{ .Values.auditService.resources.requests.cpu }}
+            memory: {{ .Values.auditService.resources.requests.memory }}
       {{ end }}
 
       - name: {{ .Values.helmrepo.image.name }}

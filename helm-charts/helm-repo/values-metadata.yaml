@@ -297,6 +297,39 @@ auditService:
           value: "Never"
         - label: "IfNotPresent"
           value: "IfNotPresent"
+  resources:
+    limits:
+      cpu:
+        __metadata:
+          label: "CPU limit"
+          description: "CPU limit for audit service"
+          type: "string"
+          immutable: false
+          required: true
+      memory:
+        __metadata:
+          label: "Memory limit"
+          description: "Memory limit for audit service"
+          type: "string" 
+          immutable: false
+          required: true
+    requests:
+      cpu:
+        __metadata:
+          label: "Requested CPU"
+          description: "Requested CPU amount for audit service"
+          type: "string" 
+          immutable: false
+          required: true
+          hidden: true
+      memory: 
+        __metadata:
+          label: "Requested memory"
+          description: "Requested memory for audit service"
+          type: "string"
+          immutable: false
+          required: true
+          hidden: true
 
   config:
     enabled:
