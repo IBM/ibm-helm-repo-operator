@@ -59,8 +59,6 @@ spec:
         {{- if not (.Capabilities.APIVersions.Has "security.openshift.io/v1") }} 
         runAsUser: {{ .Values.runAsUser }}
         {{- end }} 
-      nodeSelector:
-{{ toYaml .Values.nodeSelector | indent 8 }}
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
       containers:
