@@ -50,6 +50,8 @@ spec:
                       type: string
                     tag:
                       type: string
+                    sha:
+                      type: string
                   type: object
                 resources:
                   properties:
@@ -79,6 +81,8 @@ spec:
                     repository:
                       type: string
                     tag:
+                      type: string
+                    sha:
                       type: string
                   type: object
                 resources:

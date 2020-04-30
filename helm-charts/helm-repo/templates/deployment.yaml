@@ -64,7 +64,11 @@ spec:
       containers:
       {{ if .Values.auditService.config.enabled }}
       - name: {{ .Values.auditService.name }}
+      {{- if .Values.auditService.image.sha }}
+        image: "{{ .Values.auditService.image.imageRegistry }}/{{ .Values.auditService.image.repository }}@{{ .Values.auditService.image.sha }}"
+      {{- else }}
         image: "{{ .Values.auditService.image.imageRegistry }}/{{ .Values.auditService.image.repository }}:{{ .Values.auditService.image.tag }}"
+      {{- end }}
         imagePullPolicy: {{ .Values.auditService.image.pullPolicy }}
         securityContext:
           seLinuxOptions:
@@ -94,7 +98,11 @@ spec:
       {{ end }}
 
       - name: {{ .Values.helmrepo.image.name }}
+      {{- if .Values.helmrepo.image.sha }}
+        image: "{{ .Values.helmrepo.image.imageRegistry }}/{{ .Values.helmrepo.image.repository }}@{{ .Values.helmrepo.image.sha }}"
+      {{- else }}
         image: "{{ .Values.helmrepo.image.imageRegistry }}/{{ .Values.helmrepo.image.repository }}:{{ .Values.helmrepo.image.tag }}"
+      {{- end }} 
         imagePullPolicy:  {{ .Values.helmrepo.image.pullPolicy }}
         securityContext:
           runAsNonRoot: true
