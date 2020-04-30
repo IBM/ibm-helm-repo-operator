@@ -25,7 +25,8 @@ metadata:
                 "imageRegistry": "quay.io/opencloudio",
                 "pullPolicy": "IfNotPresent",
                 "repository": "icp-audit-service",
-                "tag": "3.4.0"
+                "tag": "3.4.0",
+                "sha": "sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16"
               },
               "resources": {
                 "limits": {
@@ -43,7 +44,8 @@ metadata:
                 "imageRegistry": "quay.io/opencloudio",
                 "pullPolicy": "IfNotPresent",
                 "repository": "icp-helm-repo",
-                "tag": "3.3.0"
+                "tag": "3.3.0",
+                "sha": "sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2"
               },
               "resources": {
                 "limits": {
@@ -94,7 +96,7 @@ metadata:
     capabilities: Basic Install
     categories: Developer Tools
     certified: "false"
-    containerImage: quay.io/opencloudio/ibm-helm-repo-operator:3.6.0
+    containerImage: quay.io/opencloudio/ibm-helm-repo-operator:latest
     createdAt: "2020-03-24T01:00:00Z"
     description: Helm Repo is a helm chart repository for storing and supplying IBM
       and local charts.
