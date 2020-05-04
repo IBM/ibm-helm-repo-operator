@@ -51,6 +51,13 @@ helmrepo:
         description: "Docker image location"
         type: "string"
         required: true
+    sha:
+      __metadata:
+        label: "Catalog image digest"
+        description: "Catalog image digest"
+        type: "string"
+        required: false
+        immutable: false
     tag:
       __metadata:
         label: "Tag"

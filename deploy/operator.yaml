@@ -58,11 +58,11 @@ spec:
               value: "ibm-helm-repo-operator"
           resources:
             limits:
-              cpu: 100m
-              memory: 512Mi
+              cpu: 150m
+              memory: 150Mi
             requests:
-              cpu: 100m
-              memory: 512Mi
+              cpu: 150m
+              memory: 150Mi
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -71,4 +71,4 @@ spec:
             privileged: false
             readOnlyRootFilesystem: true
             runAsNonRoot: true
-            runAsUser: 1001
+            runAsUser: 1000550000

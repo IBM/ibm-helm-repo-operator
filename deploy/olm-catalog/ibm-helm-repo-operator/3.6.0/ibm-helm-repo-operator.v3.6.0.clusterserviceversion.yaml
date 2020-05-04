@@ -25,8 +25,8 @@ metadata:
                 "imageRegistry": "quay.io/opencloudio",
                 "pullPolicy": "IfNotPresent",
                 "repository": "icp-audit-service",
-                "tag": "3.4.0",
-                "sha": "sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16"
+                "sha": "sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16",
+                "tag": "3.4.0"
               },
               "resources": {
                 "limits": {
@@ -44,8 +44,8 @@ metadata:
                 "imageRegistry": "quay.io/opencloudio",
                 "pullPolicy": "IfNotPresent",
                 "repository": "icp-helm-repo",
-                "tag": "3.3.0",
-                "sha": "sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2"
+                "sha": "sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2",
+                "tag": "3.3.0"
               },
               "resources": {
                 "limits": {
@@ -178,7 +178,6 @@ spec:
         - apiGroups:
           - security.openshift.io
           resourceNames:
-          - hostaccess
           - privileged
           resources:
           - securitycontextconstraints
@@ -235,11 +234,11 @@ spec:
                 name: ibm-helm-repo-operator
                 resources:
                   limits:
-                    cpu: 100m
-                    memory: 512Mi
+                    cpu: 150m
+                    memory: 150Mi
                   requests:
-                    cpu: 100m
-                    memory: 512Mi
+                    cpu: 150m
+                    memory: 150Mi
                 securityContext:
                   allowPrivilegeEscalation: false
                   capabilities:
@@ -248,7 +247,7 @@ spec:
                   privileged: false
                   readOnlyRootFilesystem: true
                   runAsNonRoot: true
-                  runAsUser: 1001
+                  runAsUser: 1000550000
               serviceAccountName: ibm-helm-repo-operator
       permissions:
       - rules:
