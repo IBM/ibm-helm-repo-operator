@@ -5,7 +5,7 @@ metadata:
     alm-examples: |-
       [
         {
-          "apiVersion": "operator.ibm.com/v1",
+          "apiVersion": "operator.ibm.com/v1alpha1",
           "kind": "HelmRepo",
           "metadata": {
             "labels": {
@@ -151,7 +151,7 @@ spec:
       - description: Deployed Release shows the manifest of the deployed Helm release
         displayName: Deployed Release
         path: deployedRelease
-      version: v1
+      version: v1alpha1
   description: Helm Repo is a helm chart repository for storing and supplying IBM
     and local charts.
   displayName: IBM Helm Repo Operator
