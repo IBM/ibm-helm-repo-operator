@@ -98,8 +98,11 @@ metadata:
     certified: "false"
     containerImage: quay.io/opencloudio/ibm-helm-repo-operator:latest
     createdAt: "2020-03-24T01:00:00Z"
-    description: Helm Repo is a helm chart repository for storing and supplying IBM
-      and local charts.
+    description: "Helm Repo \n Operator used to manager IBM Helm Repo service. Helm Repo is a helm chart repository for storing and supplying IBM and local charts.
+    \n\n > **Important:** Do not install this operator directly. Only install this operator using the IBM Common Services Operator. For more information about installing this operator and other Common Services operators, see [Installer documentation](http://ibm.biz/cpcs_opinstall). If you are using this operator as part of an IBM Cloud Pak, see the documentation for that IBM Cloud Pak to learn more about how to install and use the operator service. For more information about IBM Cloud Paks, see [IBM Cloud Paks that use Common Services](http://ibm.biz/cpcs_cloudpaks).
+    \n\n##Supported platforms\n###Platforms\n- Red Hat OpenShift Container Plataform 4.x\n\n###Operating Systems\n- Red Hat Enterprise Linux CoreOS\n\n###Operator versions\n- 3.6.0
+    \n\n##Prerequisites\n[1.] Red Hat OpenShift Container Plataform 4.x installed\n[2.] Cluster Admin role for installation\n[3.] [IBM Cert Manager Operator](https://github.com/IBM/ibm-cert-manager-operator)\n[4.] [IBM MongoDB Operator](https://github.com/IBM/ibm-mongodb-operator)\n[5.] [IBM IAM Operator](https://github.com/IBM/ibm-iam-operator)\n[6.] [IBM Management Ingress Operator](https://github.com/IBM/ibm-management-ingress-operator)\n[7.] [IBM Platform API Operator](https://github.com/IBM/ibm-platform-api-operator)
+    \n\n##Documentation\nFor installation and configuration, see links in **Important** section."
     repository: https://github.com/IBM/ibm-helm-repo-operator
     support: IBM
   name: ibm-helm-repo-operator.v3.6.0
