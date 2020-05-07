@@ -16,20 +16,20 @@ images:
     platform:
       os: linux
       arch: s390x
-- image: ibm-helm-repo-operator:sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+- image: ibm-helm-repo-operator@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
   references:
-  - repository: ibm-helm-repo-operator:sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+  - repository: ibm-helm-repo-operator@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
     platform:
       os: linux
       arch: amd64
-  - repository: ibm-helm-repo-operator:sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+  - repository: ibm-helm-repo-operator@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
     platform:
       os: linux
       arch: ppc64le
-  - repository: ibm-helm-repo-operator:sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+  - repository: ibm-helm-repo-operator@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
     platform:
       os: linux
       arch: s390x
@@ -50,20 +50,20 @@ images:
     platform:
       os: linux
       arch: s390x
-- image: icp-audit-service:sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
+- image: icp-audit-service@sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
   references:
-  - repository: icp-audit-service:sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
-    pull-repository: quay.io/opencloudio/icp-audit-service:sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
+  - repository: icp-audit-service@sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
+    pull-repository: quay.io/opencloudio/icp-audit-service@sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
     platform:
       os: linux
       arch: amd64
-  - repository: icp-audit-service:sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
-    pull-repository: quay.io/opencloudio/icp-audit-service:sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
+  - repository: icp-audit-service@sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
+    pull-repository: quay.io/opencloudio/icp-audit-service@sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
     platform:
       os: linux
       arch: ppc64le
-  - repository: icp-audit-service:sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
-    pull-repository: quay.io/opencloudio/icp-audit-service:sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
+  - repository: icp-audit-service@sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
+    pull-repository: quay.io/opencloudio/icp-audit-service@sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16
     platform:
       os: linux
       arch: s390x
