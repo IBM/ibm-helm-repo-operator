@@ -53,8 +53,8 @@ helmrepo:
         required: true
     sha:
       __metadata:
-        label: "Catalog image digest"
-        description: "Catalog image digest."
+        label: "Helm Repo image digest"
+        description: "Helm Repo image digest."
         type: "string"
         required: false
         immutable: false
