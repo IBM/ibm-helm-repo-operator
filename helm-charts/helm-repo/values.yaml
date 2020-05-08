@@ -7,7 +7,7 @@ auditService:
     pullPolicy: IfNotPresent
     repository: icp-audit-service
     tag: 3.4.1
-    sha: "24a220374c39652f8b031637d852995bfaec5be2601f9e4c41eb1925531f466d"
+    sha: "sha256:24a220374c39652f8b031637d852995bfaec5be2601f9e4c41eb1925531f466d"
   name: icp-audit-service
   resources:
     limits:
