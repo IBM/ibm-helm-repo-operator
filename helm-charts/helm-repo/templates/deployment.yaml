@@ -1,7 +1,3 @@
-# Licensed Materials - Property of IBM
-# (C) Copyright IBM Corporation 2016, 2019. All Rights Reserved.
-# US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,6 +35,7 @@ spec:
         helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     spec:
       serviceAccount: ibm-helm-repo-operand
+      serviceAccountName: ibm-helm-repo-operand
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -53,29 +50,18 @@ spec:
       hostNetwork: false
       hostPID: false
       hostIPC: false
-      securityContext:
-        runAsNonRoot: true
-        {{- if not (.Capabilities.APIVersions.Has "security.openshift.io/v1") }} 
-        runAsUser: {{ .Values.runAsUser }}
-        {{- end }} 
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
       containers:
       {{ if .Values.auditService.config.enabled }}
       - name: {{ .Values.auditService.name }}
-      {{- if .Values.auditService.image.sha }}
-        image: "{{ .Values.auditService.image.imageRegistry }}/{{ .Values.auditService.image.repository }}@{{ .Values.auditService.image.sha }}"
-      {{- else }}
-        image: "{{ .Values.auditService.image.imageRegistry }}/{{ .Values.auditService.image.repository }}:{{ .Values.auditService.image.tag }}"
-      {{- end }}
+        image: {{ .Values.auditService.image.repository }}
         imagePullPolicy: {{ .Values.auditService.image.pullPolicy }}
         securityContext:
           seLinuxOptions:
             type: spc_t
           runAsNonRoot: true
-          {{- if not (.Capabilities.APIVersions.Has "security.openshift.io/v1") }}
           runAsUser: {{ .Values.runAsUser }}
-          {{- end }}
           allowPrivilegeEscalation: false
           privileged: false
           readOnlyRootFilesystem: true
@@ -97,17 +83,11 @@ spec:
       {{ end }}
 
       - name: {{ .Values.helmrepo.image.name }}
-      {{- if .Values.helmrepo.image.sha }}
-        image: "{{ .Values.helmrepo.image.imageRegistry }}/{{ .Values.helmrepo.image.repository }}@{{ .Values.helmrepo.image.sha }}"
-      {{- else }}
-        image: "{{ .Values.helmrepo.image.imageRegistry }}/{{ .Values.helmrepo.image.repository }}:{{ .Values.helmrepo.image.tag }}"
-      {{- end }} 
+        image: {{ .Values.helmrepo.image.repository }}
         imagePullPolicy:  {{ .Values.helmrepo.image.pullPolicy }}
         securityContext:
           runAsNonRoot: true
-          {{- if not (.Capabilities.APIVersions.Has "security.openshift.io/v1") }}
           runAsUser: {{ .Values.runAsUser }}
-          {{- end }}
           allowPrivilegeEscalation: false
           privileged: false
           readOnlyRootFilesystem: true

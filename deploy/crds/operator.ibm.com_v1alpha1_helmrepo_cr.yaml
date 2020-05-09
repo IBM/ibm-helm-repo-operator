@@ -1,22 +1,17 @@
 apiVersion: operator.ibm.com/v1alpha1
 kind: HelmRepo
 metadata:
-  name: helmrepos.operator.ibm.com
+  name: helm-repo
+  annotations:
+    helm.operator-sdk/upgrade-force: "True"
   labels:
-    name: helmrepos.operator.ibm.com
     app.kubernetes.io/instance: helmrepos.operator.ibm.com
     app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
-    app.kubernetes.io/name: helmrepos.operator.ibm.com
+    app.kubernetes.io/name: helm-repo
 spec:
   auditService:
     config:
       enabled: true
-    image:
-      imageRegistry: quay.io/opencloudio
-      pullPolicy: IfNotPresent
-      repository: icp-audit-service
-      tag: 3.4.0
-      sha: "sha256:334fae7bd3ae4c04611f4e82207a2f7836dbc589f7fc2b3cd172bd93572bfe16"
     resources:
       limits:
         cpu: 200m
@@ -25,12 +20,6 @@ spec:
         cpu: 200m
         memory: 250Mi
   helmrepo:
-    image:
-      imageRegistry: quay.io/opencloudio
-      pullPolicy: IfNotPresent
-      repository: icp-helm-repo
-      tag: 3.3.0
-      sha: "sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2"
     resources:
       limits:
         cpu: 100m
