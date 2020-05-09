@@ -37,33 +37,12 @@ helmrepo:
         description: "Docker image name"
         type: "string"
         required: true
-    imageRegistry:
-      __metadata:
-        name: "imageRegistry"
-        label: "Image registry"
-        description: "helmrepo.image.imageRegistry: Registry for the platform api image"
-        type: "string"
-        immutable: false
-        required: true
     repository:
       __metadata:
         label: "Repository"
         description: "Docker image location"
         type: "string"
         required: true
-    sha:
-      __metadata:
-        label: "Helm Repo image digest"
-        description: "Helm Repo image digest."
-        type: "string"
-        required: false
-        immutable: false
-    tag:
-      __metadata:
-        label: "Tag"
-        description: "Docker image tag"
-        type: "string"
-        required: false
     pullPolicy:
       __metadata:
         label: "Image pull policy"
@@ -244,33 +223,12 @@ auditService:
       type: "string"
       required: true
   image:
-    imageRegistry:
-      __metadata:
-        name: "imageRegistry"
-        label: "Image Registry"
-        description: "helmrepo.image.imageRegistry: Registry for the platform api image"
-        type: "string"
-        immutable: false
-        required: true
     repository:
       __metadata:
         label: "Repository"
         description: "Docker image location"
         type: "string"
         required: true
-    tag:
-      __metadata:
-        label: "Tag"
-        description: "Docker image tag"
-        type: "string"
-        required: false
-    sha:
-      __metadata:
-        label: "audit service image digest"
-        description: "audit service image digest."
-        type: "string"
-        required: false
-        immutable: false
     pullPolicy:
       __metadata:
         label: "Image pull policy"
