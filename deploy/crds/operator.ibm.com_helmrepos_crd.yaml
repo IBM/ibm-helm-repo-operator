@@ -59,19 +59,6 @@ spec:
                   type: object
             helmrepo:
               properties:
-                image:
-                  properties:
-                    imageRegistry:
-                      type: string
-                    pullPolicy:
-                      type: string
-                    repository:
-                      type: string
-                    tag:
-                      type: string
-                    sha:
-                      type: string
-                  type: object
                 resources:
                   properties:
                     limits:
