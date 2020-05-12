@@ -2,39 +2,53 @@
 
 > **Important:** Do not install this operator directly. Only install this operator using the IBM Common Services Operator. For more information about installing this operator and other Common Services operators, see [Installer documentation](http://ibm.biz/cpcs_opinstall). If you are using this operator as part of an IBM Cloud Pak, see the documentation for that IBM Cloud Pak to learn more about how to install and use the operator service. For more information about IBM Cloud Paks, see [IBM Cloud Paks that use Common Services](http://ibm.biz/cpcs_cloudpaks).
 
-Operator used to manager IBM Helm Repo service. Helm Repo is a helm chart repository for storing and supplying IBM and local charts.
+The IBM Helm Repo operator provides a Helm chart repository for storing and supplying IBM and local charts.
+
+For more information about the available IBM Cloud Platform Common Services, see the [IBM Knowledge Center](http://ibm.biz/cpcsdocs).
 
 ## Supported platforms
 
-### Platforms
+Red Hat OpenShift Container Platform 4.3 or newer installed on one of the following platforms:
 
-- Red Hat OpenShift Container Plataform 4.x
-
-### Operating Systems
-
-- Red Hat Enterprise Linux CoreOS
-
+- Linux x86_64
+- Linux on Power (ppc64le)
+- Linux on IBM Z and LinuxONE
+  
 ## Operator versions
 
+- 3.5.0
 - 3.6.0
 
 ## Prerequisites
 
-1. Red Hat OpenShift Container Plataform 4.x installed
-1. Cluster Admin role for installation
-1. [IBM Cert Manager Operator](https://github.com/IBM/ibm-cert-manager-operator)
-1. [IBM MongoDB Operator](https://github.com/IBM/ibm-mongodb-operator)
-1. [IBM IAM Operator](https://github.com/IBM/ibm-iam-operator)
-1. [IBM Management Ingress Operator](https://github.com/IBM/ibm-management-ingress-operator)
-1. [IBM Platform API Operator](https://github.com/IBM/ibm-platform-api-operator)
+Before you install this operator, you need to first install the operator dependencies and prerequisites:
+
+- For the list of operator dependencies, see the IBM Knowledge Center [Common Services dependencies documentation](http://ibm.biz/cpcs_opdependencies).
+
+- For the list of prerequisites for installing the operator, see the IBM Knowledge Center [Preparing to install services documentation](http://ibm.biz/cpcs_opinstprereq).
 
 ## Documentation
 
-For installation and configuration, see [IBM Knowledge Center link].
+To install the operator with the IBM Common Services Operator follow the the installation and configuration instructions within the IBM Knowledge Center.
 
-### Developer guide
+- If you are using the operator as part of an IBM Cloud Pak, see the documentation for that IBM Cloud Pak. For a list of IBM Cloud Paks, see [IBM Cloud Paks that use Common Services](http://ibm.biz/cpcs_cloudpaks).
+- If you are using the operator with an IBM Containerized Software, see the IBM Cloud Platform Common Services Knowledge Center [Installer documentation](http://ibm.biz/cpcs_opinstall).
 
-Information about building and testing the operator.
+## SecurityContextConstraints Requirements
+
+The Helm Repo service requires running with the OpenShift Container Platform 4.3 default privileged Security Context Constraints (SCCs).
+
+For more information about the OpenShift Container Platform Security Context Constraints, see [Managing Security Context Constraints](https://docs.openshift.com/container-platform/4.3/authentication/managing-security-context-constraints.html).
+
+## Developer guide
+
+If, as a developer, you are looking to build and test this operator to try out and learn more about the operator and its capabilities, you can use the following developer guide. This guide provides commands for a quick install and initial validation for running the operator.
+
+> **Important:** The following developer guide is provided as-is and only for trial and education purposes. IBM and IBM Support does not provide any support for the usage of the operator with this developer guide. For the official supported install and usage guide for the operator, see the the IBM Knowledge Center documentation for your IBM Cloud Pak or for IBM Cloud Platform Common Services.
+
+### Quick start guide
+
+Use the following quick start commands for building and testing the operator:
 
 #### Cloning the operator repository
 ```
@@ -57,21 +71,23 @@ Information about building and testing the operator.
 # make uninstall
 ```
 
-#### Debugging the operator
+### Debugging guide
 
-Check the Cluster Service Version (CSV) installation status
+Use the following commands to debug the operator:
+
+#### Check the Cluster Service Version (CSV) installation status
 ```
 # oc get csv
 # oc describe csv ibm-helm-repo-operator.v3.6.0
 ```
 
-Check the custom resource status
+#### Check the custom resource status
 ```
 # oc describe helmrepos helm-repo
 # oc get helmrepos helm-repo -o yaml
 ```
 
-Check the operator status and log
+#### Check the operator status and log
 ```
 # oc describe po -l name=ibm-helm-repo-operator
 # oc logs -f $(oc get po -l name=ibm-helm-repo-operator -o name)
@@ -80,93 +96,3 @@ Check the operator status and log
 #### End-to-End testing using Operand Deployment Lifecycle Manager
 
 See [ODLM guide](https://github.com/IBM/operand-deployment-lifecycle-manager/blob/master/docs/install/common-service-integration.md#end-to-end-test)
-
-### PodSecurityPolicy Requirements
-
-This chart requires a PodSecurityPolicy to be bound to the target namespace prior to installation. Choose either a predefined [`ibm-anyuid-psp`](https://ibm.biz/cpkspec-psp) PodSecurityPolicy or have your cluster administrator create a custom PodSecurityPolicy for you:
-* Custom PodSecurityPolicy definition:
-
-```
-apiVersion: extensions/v1beta1
-kind: PodSecurityPolicy
-metadata:
-  name: icp-helm-repo-psp
-spec:
-  allowPrivilegeEscalation: true
-  fsGroup:
-    rule: RunAsAny
-  requiredDropCapabilities:
-  - MKNOD
-  allowedCapabilities:
-  - SETPCAP
-  - AUDIT_WRITE
-  - CHOWN
-  - NET_RAW
-  - DAC_OVERRIDE
-  - FOWNER
-  - FSETID
-  - KILL
-  - SETUID
-  - SETGID
-  - NET_BIND_SERVICE
-  - SYS_CHROOT
-  - SETFCAP
-  runAsUser:
-    rule: RunAsAny
-  seLinux:
-    rule: RunAsAny
-  supplementalGroups:
-    rule: RunAsAny
-  volumes:
-  - configMap
-  - emptyDir
-  - projected
-  - secret
-  - persistentVolumeClaim
-  forbiddenSysctls:
-  - '*'
-```
-
-### Red Hat OpenShift SecurityContextConstraints Requirements
-
-This chart requires a SecurityContextConstraints to be bound to the target namespace prior to installation. To meet this requirement there may be cluster-scoped, as well as namespace-scoped, pre- and post-actions that need to occur.
-
-The predefined SecurityContextConstraints [`ibm-anyuid-scc`](https://ibm.biz/cpkspec-scc) has been verified for this chart. If your target namespace is not bound to this SecurityContextConstraints resource you can bind it with the following command:
-
-`oc adm policy add-scc-to-group ibm-anyuid-scc system:serviceaccounts:<namespace>` For example, for release into the `default` namespace:
-``` 
-oc adm policy add-scc-to-group ibm-anyuid-scc system:serviceaccounts:default
-```
-
-* Custom SecurityContextConstraints definition:
-
-```
-apiVersion: security.openshift.io/v1
-kind: SecurityContextConstraints
-metadata:
-  name: icp-helm-repo-scc
-readOnlyRootFilesystem: false
-allowedCapabilities: []
-allowHostPorts: true
-seLinuxContext:
-  type: RunAsAny
-supplementalGroups:
-  type: MustRunAs
-  ranges:
-  - max: 65535
-    min: 1
-runAsUser:
-  type: MustRunAsNonRoot
-fsGroup:
-  type: MustRunAs
-  ranges:
-  - max: 65535
-    min: 1
-volumes:
-- configMap
-- downwardAPI
-- emptyDir
-- persistentVolumeClaim
-- projected
-- secret
-```
