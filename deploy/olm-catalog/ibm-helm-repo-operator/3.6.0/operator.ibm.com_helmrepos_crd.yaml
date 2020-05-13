@@ -4,7 +4,7 @@ metadata:
   name: helmrepos.operator.ibm.com
   labels:
     name: helmrepos.operator.ibm.com
-    app.kubernetes.io/instance: helmrepos.operator.ibm.com
+    app.kubernetes.io/instance: helm-repo
     app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
     app.kubernetes.io/name: helmrepos.operator.ibm.com
 spec:
