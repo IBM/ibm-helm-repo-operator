@@ -9,16 +9,6 @@ metadata:
     app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
     app.kubernetes.io/name: helm-repo
 spec:
-  auditService:
-    config:
-      enabled: true
-    resources:
-      limits:
-        cpu: 200m
-        memory: 250Mi
-      requests:
-        cpu: 200m
-        memory: 250Mi
   helmrepo:
     resources:
       limits:

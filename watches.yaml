@@ -4,5 +4,6 @@
   kind: HelmRepo
   chart: helm-charts/helm-repo
   overrideValues:
+    auditService.config.enabled: ${OPERAND_AUDIT_SERVICE_ENABLED}
     auditService.image.repository: ${OPERAND_AUDIT_SERVICE_IMAGE}
     helmrepo.image.repository: ${OPERAND_HELM_REPO_IMAGE}

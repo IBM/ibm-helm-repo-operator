@@ -53,7 +53,7 @@ spec:
       tolerations:
 {{ toYaml .Values.tolerations | indent 8 }}
       containers:
-      {{ if .Values.auditService.config.enabled }}
+      {{ if eq ( .Values.auditService.config.enabled | default "false" ) "true" }}
       - name: {{ .Values.auditService.name }}
         image: {{ .Values.auditService.image.repository }}
         imagePullPolicy: {{ .Values.auditService.image.pullPolicy }}
@@ -101,7 +101,7 @@ spec:
           mountPath: /certs/mongodb-client
         - name: {{ .Values.helmrepo.volumeMounts.repoAssetsName }}
           mountPath: {{ .Values.helmrepo.volumeMounts.repoAssetsMountPath }}
-        {{ if .Values.auditService.config.enabled }}
+        {{ if eq ( .Values.auditService.config.enabled | default "false" ) "true" }}
         - name: shared
           mountPath: /var/log/audit
         {{ end }}
@@ -195,7 +195,7 @@ spec:
       - name: {{ .Values.helmrepo.volumeMounts.repoAssetsName }}
         emptyDir: {}
 
-      {{ if .Values.auditService.config.enabled }}
+      {{ if eq ( .Values.auditService.config.enabled | default "false" ) "true" }}
       - name: journal
         hostPath:
           path: /run/systemd/journal

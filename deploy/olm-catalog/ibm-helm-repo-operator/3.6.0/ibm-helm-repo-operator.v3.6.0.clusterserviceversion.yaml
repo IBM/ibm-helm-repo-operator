@@ -19,21 +19,6 @@ metadata:
             "name": "helm-repo"
           },
           "spec": {
-            "auditService": {
-              "config": {
-                "enabled": true
-              },
-              "resources": {
-                "limits": {
-                  "cpu": "200m",
-                  "memory": "250Mi"
-                },
-                "requests": {
-                  "cpu": "200m",
-                  "memory": "250Mi"
-                }
-              }
-            },
             "helmrepo": {
               "resources": {
                 "limits": {
@@ -215,7 +200,7 @@ spec:
                 productName: IBM Cloud Platform Common Services
                 productVersion: 3.4.0
               labels:
-                app.kubernetes.io/instance: helmrepos.operator.ibm.com
+                app.kubernetes.io/instance: helm-repo
                 app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
                 app.kubernetes.io/name: helmrepos.operator.ibm.com
                 name: ibm-helm-repo-operator
@@ -244,6 +229,8 @@ spec:
                       fieldPath: metadata.name
                 - name: OPERATOR_NAME
                   value: ibm-helm-repo-operator
+                - name: OPERAND_AUDIT_SERVICE_ENABLED
+                  value: "false"
                 - name: OPERAND_AUDIT_SERVICE_IMAGE
                   value: quay.io/opencloudio/icp-audit-service@sha256:24a220374c39652f8b031637d852995bfaec5be2601f9e4c41eb1925531f466d
                 - name: OPERAND_HELM_REPO_IMAGE
