@@ -1,18 +1,35 @@
 images:
-- image: ibm-helm-repo-operator:3.5.0
+- image: ibm-helm-repo-operator:3.6.0
   references:
-  - repository: ibm-helm-repo-operator:3.5.0
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0
+  - repository: ibm-helm-repo-operator:3.6.0
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.0
     platform:
       os: linux
       arch: amd64
-  - repository: ibm-helm-repo-operator:3.5.0
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0
+  - repository: ibm-helm-repo-operator:3.6.0
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.0
     platform:
       os: linux
       arch: ppc64le
-  - repository: ibm-helm-repo-operator:3.5.0
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.5.0
+  - repository: ibm-helm-repo-operator:3.6.0
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.0
+    platform:
+      os: linux
+      arch: s390x
+- image: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
+  references:
+  - repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
+    platform:
+      os: linux
+      arch: amd64
+  - repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
+    platform:
+      os: linux
+      arch: ppc64le
+  - repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
     platform:
       os: linux
       arch: s390x
