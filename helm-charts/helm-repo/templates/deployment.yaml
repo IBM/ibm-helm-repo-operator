@@ -130,9 +130,15 @@ spec:
 {{ toYaml .Values.helmrepo.resources | indent 10 }}
         env:
         - name: CLUSTER_CA_DOMAIN
-          value: "{{ .Values.helmrepo.env.CLUSTER_CA_DOMAIN }}"
+          valueFrom:
+            configMapKeyRef:
+              key: cluster_ca_domain
+              name: ibmcloud-cluster-info
         - name: CLUSTER_PORT
-          value: "{{ .Values.helmrepo.env.CLUSTER_PORT }}"
+          valueFrom:
+            configMapKeyRef:
+              key: cluster_router_https_port
+              name: ibmcloud-cluster-info
         - name: CHARTS_REPO_NAME
           value: "{{ .Values.helmrepo.env.CHARTS_REPO_NAME }}"
         - name: WLP_CLIENT_ID
