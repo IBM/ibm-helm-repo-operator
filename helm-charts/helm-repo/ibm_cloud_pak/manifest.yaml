@@ -1,18 +1,18 @@
 images:
-- image: ibm-helm-repo-operator:3.6.0
+- image: ibm-helm-repo-operator:3.6.1
   references:
-  - repository: ibm-helm-repo-operator:3.6.0
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.0
+  - repository: ibm-helm-repo-operator:3.6.1
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.1
     platform:
       os: linux
       arch: amd64
-  - repository: ibm-helm-repo-operator:3.6.0
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.0
+  - repository: ibm-helm-repo-operator:3.6.1
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.1
     platform:
       os: linux
       arch: ppc64le
-  - repository: ibm-helm-repo-operator:3.6.0
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.0
+  - repository: ibm-helm-repo-operator:3.6.1
+    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.1
     platform:
       os: linux
       arch: s390x

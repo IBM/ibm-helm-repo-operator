@@ -57,20 +57,6 @@ helmrepo:
         - label: "IfNotPresent"
           value: "IfNotPresent"
   env:
-    CLUSTER_PORT:
-      __metadata:
-        label: "Cluster port"
-        description: "The external port of the cluster"
-        type: "number"
-        immutable: false
-        required: true
-    CLUSTER_CA_DOMAIN:
-      __metadata:
-        label: "Cluster CA domain"
-        description: "Cluster certificate authority domain"
-        type: "string"
-        immutable: false
-        required: true
     PROXY_ROUTE:
       __metadata:
         label: "Proxy route"

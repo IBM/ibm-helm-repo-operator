@@ -21,8 +21,6 @@ helmrepo:
     redirectURL: http://localhost:3001/auth/liberty/callback
   env:
     CHARTS_REPO_NAME: local-charts
-    CLUSTER_CA_DOMAIN: mycluster
-    CLUSTER_PORT: 443
     PROXY_ROUTE: helm-repo
   image:
     name: helm-repo
