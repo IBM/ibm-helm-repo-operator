@@ -76,7 +76,7 @@ metadata:
     olm.skipRange: ">=3.5.0 <3.6.0"
     repository: https://github.com/IBM/ibm-helm-repo-operator
     support: IBM
-  name: ibm-helm-repo-operator.v3.6.0
+  name: ibm-helm-repo-operator.v3.6.1
   namespace: ibm-common-services
 spec:
   apiservicedefinitions: {}
