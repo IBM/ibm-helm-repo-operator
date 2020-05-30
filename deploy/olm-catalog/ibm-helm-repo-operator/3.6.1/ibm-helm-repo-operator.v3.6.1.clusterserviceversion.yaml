@@ -69,7 +69,7 @@ metadata:
     capabilities: Seamless Upgrades
     categories: Developer Tools
     certified: "false"
-    containerImage: quay.io/opencloudio/ibm-helm-repo-operator:latest
+    containerImage: quay.io/opencloudio/ibm-helm-repo-operator@sha256:7e9496b648679ab1b7ddb00bb3ad689ffe0313cbecacc305d5f909398d507beb
     createdAt: "2020-05-16"
     description: Helm Repo is a helm chart repository for storing and supplying IBM
       and local charts.
@@ -236,7 +236,7 @@ spec:
                   value: quay.io/opencloudio/icp-audit-service@sha256:24a220374c39652f8b031637d852995bfaec5be2601f9e4c41eb1925531f466d
                 - name: OPERAND_HELM_REPO_IMAGE
                   value: quay.io/opencloudio/icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
-                image: quay.io/opencloudio/ibm-helm-repo-operator:latest
+                image: quay.io/opencloudio/ibm-helm-repo-operator@sha256:7e9496b648679ab1b7ddb00bb3ad689ffe0313cbecacc305d5f909398d507beb
                 imagePullPolicy: Always
                 name: ibm-helm-repo-operator
                 resources:

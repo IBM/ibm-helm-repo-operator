@@ -44,7 +44,7 @@ spec:
       containers:
         - name: ibm-helm-repo-operator
           # Replace this with the built image name
-          image: quay.io/opencloudio/ibm-helm-repo-operator:latest
+          image: quay.io/opencloudio/ibm-helm-repo-operator@sha256:7e9496b648679ab1b7ddb00bb3ad689ffe0313cbecacc305d5f909398d507beb
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
