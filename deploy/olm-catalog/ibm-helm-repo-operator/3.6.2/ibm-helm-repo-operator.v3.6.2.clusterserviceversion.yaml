@@ -73,7 +73,7 @@ metadata:
     createdAt: "2020-05-16"
     description: Helm Repo is a helm chart repository for storing and supplying IBM
       and local charts.
-    olm.skipRange: ">=3.5.0 <3.6.0"
+    olm.skipRange: ">=3.5.0 <3.6.2"
     repository: https://github.com/IBM/ibm-helm-repo-operator
     support: IBM
   name: ibm-helm-repo-operator.v3.6.2
