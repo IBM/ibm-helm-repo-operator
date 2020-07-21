@@ -62,7 +62,7 @@ spec:
             - name: OPERAND_AUDIT_SERVICE_IMAGE
               value: "quay.io/opencloudio/icp-audit-service@sha256:24a220374c39652f8b031637d852995bfaec5be2601f9e4c41eb1925531f466d"
             - name: OPERAND_HELM_REPO_IMAGE
-              value: "quay.io/opencloudio/icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2"
+              value: "quay.io/opencloudio/icp-helm-repo@sha256:84f670d9d51634da63d7a13eff8a1f574e45c98af818c76bcc4d54673c5f4aa2"
           resources:
             limits:
               cpu: 150m
