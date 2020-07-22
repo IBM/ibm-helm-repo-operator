@@ -1,22 +1,5 @@
 images:
-- image: ibm-helm-repo-operator:3.6.2
-  references:
-  - repository: ibm-helm-repo-operator:3.6.2
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.2
-    platform:
-      os: linux
-      arch: amd64
-  - repository: ibm-helm-repo-operator:3.6.2
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.2
-    platform:
-      os: linux
-      arch: ppc64le
-  - repository: ibm-helm-repo-operator:3.6.2
-    pull-repository: quay.io/opencloudio/ibm-helm-repo-operator:3.6.2
-    platform:
-      os: linux
-      arch: s390x
-- image: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
+- image: ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
   references:
   - repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
     pull-repository: quay.io/opencloudio/ibm-helm-repo-operator@sha256:921bf66233e11a5ab663ea09dd3e30de70427821d0881cb7eaf234ac987fcd47
@@ -35,52 +18,18 @@ images:
       arch: s390x
 - image: icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
   references:
-  - repository: icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
-    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+  - repository: icp-helm-repo@sha256:e5b34f81c2efcf829d0a6fb9f28c831736fc8f31966a779ac43730a472e388b0
+    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:e5b34f81c2efcf829d0a6fb9f28c831736fc8f31966a779ac43730a472e388b0
     platform:
       os: linux
       arch: amd64
-  - repository: icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
-    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+  - repository: icp-helm-repo@sha256:21ef4022b032b77daa89264d8f72178f6635b5bea8fe48d30f2268ccee8efeda
+    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:21ef4022b032b77daa89264d8f72178f6635b5bea8fe48d30f2268ccee8efeda
     platform:
       os: linux
       arch: ppc64le
-  - repository: icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
-    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
-    platform:
-      os: linux
-      arch: s390x
-- image: icp-helm-repo:3.3.0
-  references:
-  - repository: icp-helm-repo:3.3.0
-    pull-repository: quay.io/opencloudio/icp-helm-repo:3.3.0
-    platform:
-      os: linux
-      arch: amd64
-  - repository: icp-helm-repo:3.3.0
-    pull-repository: quay.io/opencloudio/icp-helm-repo:3.3.0
-    platform:
-      os: linux
-      arch: ppc64le
-  - repository: icp-helm-repo:3.3.0
-    pull-repository: quay.io/opencloudio/icp-helm-repo:3.3.0
-    platform:
-      os: linux
-      arch: s390x
-- image: icp-audit-service:3.4.1
-  references:
-  - repository: icp-audit-service:3.4.1
-    pull-repository: quay.io/opencloudio/icp-audit-service:3.4.1
-    platform:
-      os: linux
-      arch: amd64
-  - repository: icp-audit-service:3.4.1
-    pull-repository: quay.io/opencloudio/icp-audit-service:3.4.1
-    platform:
-      os: linux
-      arch: ppc64le
-  - repository: icp-audit-service:3.4.1
-    pull-repository: quay.io/opencloudio/icp-audit-service:3.4.1
+  - repository: icp-helm-repo@sha256:e5b34f81c2efcf829d0a6fb9f28c831736fc8f31966a779ac43730a472e388b0
+    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:e5b34f81c2efcf829d0a6fb9f28c831736fc8f31966a779ac43730a472e388b0
     platform:
       os: linux
       arch: s390x

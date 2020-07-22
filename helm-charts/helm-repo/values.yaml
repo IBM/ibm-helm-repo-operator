@@ -25,7 +25,7 @@ helmrepo:
   image:
     name: helm-repo
     pullPolicy: IfNotPresent
-    repository: quay.io/opencloudio/icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+    repository: quay.io/opencloudio/icp-helm-repo@sha256:84f670d9d51634da63d7a13eff8a1f574e45c98af818c76bcc4d54673c5f4aa2
   resources:
     limits:
       cpu: 100m
