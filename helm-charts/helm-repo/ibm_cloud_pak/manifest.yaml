@@ -16,20 +16,20 @@ images:
     platform:
       os: linux
       arch: s390x
-- image: icp-helm-repo@sha256:bc95dc9703c0d26ad3af1004bbe4b236781ebd84082df430108948897dfabfe2
+- image: icp-helm-repo@sha256:85c4a66efc7eabf2a7cca18730362b2dc2731edd061983948f73757eb3af21fa
   references:
-  - repository: icp-helm-repo@sha256:e5b34f81c2efcf829d0a6fb9f28c831736fc8f31966a779ac43730a472e388b0
-    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:e5b34f81c2efcf829d0a6fb9f28c831736fc8f31966a779ac43730a472e388b0
+  - repository: icp-helm-repo@sha256:839e39e1d69003590ee5d9d511c4ac338c31a477a18e3da103dc92f04da280e7
+    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:839e39e1d69003590ee5d9d511c4ac338c31a477a18e3da103dc92f04da280e7
     platform:
       os: linux
       arch: amd64
-  - repository: icp-helm-repo@sha256:21ef4022b032b77daa89264d8f72178f6635b5bea8fe48d30f2268ccee8efeda
-    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:21ef4022b032b77daa89264d8f72178f6635b5bea8fe48d30f2268ccee8efeda
+  - repository: icp-helm-repo@sha256:b7b321475b98a6aeb7d133111ad6d7d859e0b7c68da7f5d5ef130eff4c3061d0
+    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:b7b321475b98a6aeb7d133111ad6d7d859e0b7c68da7f5d5ef130eff4c3061d0
     platform:
       os: linux
       arch: ppc64le
-  - repository: icp-helm-repo@sha256:e5b34f81c2efcf829d0a6fb9f28c831736fc8f31966a779ac43730a472e388b0
-    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:e5b34f81c2efcf829d0a6fb9f28c831736fc8f31966a779ac43730a472e388b0
+  - repository: icp-helm-repo@sha256:490c7f7e915ca931b3863c9ae85a7921932f42b9a91f3d40d55eecf3c3d6e9df
+    pull-repository: quay.io/opencloudio/icp-helm-repo@sha256:490c7f7e915ca931b3863c9ae85a7921932f42b9a91f3d40d55eecf3c3d6e9df
     platform:
       os: linux
       arch: s390x
