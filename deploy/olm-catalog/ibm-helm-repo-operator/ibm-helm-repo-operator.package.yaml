@@ -1,7 +1,7 @@
 channels:
 - currentCSV: ibm-helm-repo-operator.v3.6.2
   name: dev
-- currentCSV: ibm-helm-repo-operator.v3.6.1
+- currentCSV: ibm-helm-repo-operator.v3.6.2
   name: beta
 - currentCSV: ibm-helm-repo-operator.v3.6.1
   name: stable-v1
