@@ -69,7 +69,7 @@ metadata:
     capabilities: Seamless Upgrades
     categories: Developer Tools
     certified: "false"
-    containerImage: quay.io/opencloudio/ibm-helm-repo-operator:dev
+    containerImage: quay.io/opencloudio/ibm-helm-repo-operator:latest
     createdAt: "2020-05-16"
     description: Helm Repo is a helm chart repository for storing and supplying IBM
       and local charts.
