@@ -30,8 +30,8 @@ NAMESPACE=ibm-common-services
 # Image URL to use all building/pushing image targets;
 # Use your own docker registry and image name for dev/test by overridding the IMG and REGISTRY environment variable.
 IMG ?= ibm-helm-repo-operator
-REGISTRY ?= quay.io/opencloudio
-CSV_VERSION ?= 3.6.2
+REGISTRY ?= "hyc-cloud-private-integration-docker-local.artifactory.swg-devops.com/ibmcom"
+CSV_VERSION ?= 3.6.3
 
 QUAY_USERNAME ?=
 QUAY_PASSWORD ?=
@@ -45,8 +45,7 @@ BASE_DIR := ibm-helm-repo-operator
 TESTARGS_DEFAULT := "-v"
 export TESTARGS ?= $(TESTARGS_DEFAULT)
 DEST := $(GIT_HOST)/$(BASE_DIR)
-VERSION ?= $(shell git describe --exact-match 2> /dev/null || \
-                 git describe --match=$(git rev-parse --short=8 HEAD) --always --dirty --abbrev=8)
+VERSION ?= $(shell cat ./helm-charts/helm-repo/Chart.yaml | grep "^version" | awk '{print $$2}')
 
 LOCAL_OS := $(shell uname)
 LOCAL_ARCH := $(shell uname -m)
@@ -84,7 +83,7 @@ lint: lint-all
 ############################################################
 
 generate-csv: ## Generate CSV
-	- operator-sdk generate csv --csv-version $(CSV_VERSION)
+	- operator-sdk generate csv --csv-version $(CSV_VERSION) --make-manifests=false
 	- cp deploy/crds/*_crd.yaml deploy/olm-catalog/$(BASE_DIR)/$(CSV_VERSION)/
 
 push-csv: ## Push CSV package to the catalog
