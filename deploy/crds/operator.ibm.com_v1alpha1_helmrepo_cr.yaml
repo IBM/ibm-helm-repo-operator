@@ -2,8 +2,6 @@ apiVersion: operator.ibm.com/v1alpha1
 kind: HelmRepo
 metadata:
   name: helm-repo
-  annotations:
-    helm.operator-sdk/upgrade-force: "True"
   labels:
     app.kubernetes.io/instance: helm-repo
     app.kubernetes.io/managed-by: helmrepos.operator.ibm.com
