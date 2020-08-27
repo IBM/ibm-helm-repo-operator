@@ -4,7 +4,7 @@ auditService:
     enabled: false
   image:
     pullPolicy: IfNotPresent
-    repository: quay.io/opencloudio/icp-audit-service@sha256:a649814564039ee923cb503720e9c5e87c20b3c340f06c48660490aeaed04d5a
+    repository: quay.io/opencloudio/icp-audit-service@sha256:3cfb9f3cc99379758f73f1cd2e6ad4dd4bc61e13cc55d7c34b0d0e280cb47421
   name: icp-audit-service
   resources:
     limits:
