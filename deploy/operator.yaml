@@ -64,10 +64,10 @@ spec:
               value: "quay.io/opencloudio/icp-helm-repo@sha256:048bd56d93928c0e6dc1e0a89d9bc6e62a04d67795371acd69b207d4f36cbdc7"
           resources:
             limits:
-              cpu: 150m
+              cpu: 50m
               memory: 256Mi
             requests:
-              cpu: 150m
+              cpu: 20m
               memory: 256Mi
           securityContext:
             allowPrivilegeEscalation: false
